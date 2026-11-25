@@ -1,0 +1,19 @@
+[project]
+name = "petricor-tools"
+version = "0.1.0"
+description = "Pipeline que transforma a caligrafia do Mário na fonte Petricor"
+requires-python = ">=3.11"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["tools"]
+
+[tool.pytest.ini_options]
+# "pythonpath" deixa o pytest enxergar o pacote em tools/ sem instalação
+pythonpath = ["tools"]
+testpaths = ["tests"]
+markers = ["slow: testes demorados (build completo da fonte)"]
+addopts = "-m 'not slow'"

@@ -1,0 +1,17 @@
+# Dependências do pipeline da fonte Petricor (Python 3.13)
+# Visão computacional: leitura das folhas digitalizadas e extração do esqueleto
+numpy
+opencv-python-headless
+scikit-image
+Pillow
+# Engenharia de fontes: UFO, compilação, fonte variável
+fonttools[ufo,unicode]
+ufoLib2
+fontmake
+skia-pathops
+glyphsets
+# Ferramentas oficiais do Google Fonts (build e controle de qualidade)
+gftools
+fontbakery[googlefonts]
+# Testes (TDD)
+pytest
