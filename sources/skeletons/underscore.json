@@ -1,0 +1,33 @@
+{
+ "name": "underscore",
+ "unicodes": [
+  95
+ ],
+ "advance": 240.7,
+ "locked": false,
+ "anchors": {},
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     240.7,
+     -124.0
+    ],
+    [
+     229.4,
+     -121.2
+    ],
+    [
+     26.9,
+     -116.0
+    ],
+    [
+     0.0,
+     -116.0
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

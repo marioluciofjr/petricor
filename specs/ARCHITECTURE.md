@@ -16,8 +16,8 @@ Cada etapa lê a saída da anterior e escreve um artefato em disco. Isso permite
 | `scan` | Ler a folha, achar a grade (ajuste regular por mínimos quadrados, que absorve a rotação do scanner), recortar as células e isolar a tinta | `SheetLoader`, `GridSlicer`, `InkExtractor`, `InkThresholds`, `SheetLayout` |
 | `skeleton` | Transformar a tinta em linhas centrais vetoriais | `Skeletonizer`, `StrokeTracer`, `BezierFitter`, `SkeletonStore` |
 | `design` | Decisões tipográficas sobre o esqueleto | `Metrics`, `Harmonizer`, `AccentDesigner`, `Composer`, `Spacer`, `Kerner`, `CursiveJoiner` |
-| `outline` | Esqueleto → contorno → UFO | `StrokeExpander`, `MasterBuilder`, `DesignspaceWriter`, `FeatureWriter` |
-| `build` | Compilação, QA e provas | `GfBuilder`, `QaRunner`, `ProofRenderer` |
+| `outline` | Esqueleto → contorno → UFO | `StrokeExpander` (`PieceSplitter`, `CubicOffsetter`, `CapBuilder`), `WeightProfile`, `ZoneCompensator`, `OutlineGlyphFactory`, `MasterBuilder`, `DesignspaceWriter`, `FeatureWriter` |
+| `build` | Compilação, QA e provas | `TraceProof`, `HarmonizeProof`, `SpecimenRenderer`, `GlyphRasterizer`, `GfBuilder`, `QaRunner` |
 | `cli.py` | Fachada de linha de comando | `PetricorCli` |
 
 **Regra de dependência:** `scan → skeleton → design → outline → build`. Um pacote só importa pacotes à sua esquerda ou o módulo `model` (tipos compartilhados). O `cli` é o único que conhece todos.

@@ -17,7 +17,8 @@ import numpy as np
 class InkThresholds:
     """Limiares medidos nas folhas reais (agrupados num Value Object)."""
 
-    hue_range: tuple[int, int] = (103, 140)
+    # 106: abaixo disso aparecem pixels claros da guia de base (matiz 103–105)
+    hue_range: tuple[int, int] = (106, 140)
     min_saturation: int = 40
     max_value: int = 228
     min_area: int = 25   # componentes menores que isso são sujeira

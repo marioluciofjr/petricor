@@ -166,13 +166,15 @@ class StrokeTracer:
 
     def trace(self, skeleton: np.ndarray, stroke_width: float) -> list[PixelPath]:
         g = SkeletonGraph(skeleton)
+        # pingos de verdade: nós que já nascem sem nenhuma aresta (antes da poda)
+        isolated = [nid for nid, n in g.nodes.items() if not n.ends]
         self._prune_spurs(g, self.spur_factor * max(stroke_width, 2.0))
         links = self._pair_junctions(g, self.probe_factor * max(stroke_width, 2.0))
         paths = self._chain(g, links, trim=0.6 * stroke_width)
         paths += [PixelPath(loop, closed=True) for loop in g.loops if len(loop) > 8]
         paths = [p for p in paths if p.length() >= self.min_path_px]
         # pontos isolados (pingo do i, ponto final) viram um "traço" de 1 ponto
-        paths += [PixelPath(n.center[None, :]) for nid, n in g.nodes.items() if g.degree(nid) == 0]
+        paths += [PixelPath(g.nodes[nid].center[None, :]) for nid in isolated]
         return paths
 
     # ------------------------------------------------------------------

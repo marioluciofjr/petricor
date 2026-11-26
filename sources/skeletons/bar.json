@@ -1,0 +1,33 @@
+{
+ "name": "bar",
+ "unicodes": [
+  124
+ ],
+ "advance": 32.9,
+ "locked": false,
+ "anchors": {},
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     5.3,
+     760.0
+    ],
+    [
+     5.3,
+     462.5
+    ],
+    [
+     -18.0,
+     154.6
+    ],
+    [
+     32.9,
+     -140.0
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

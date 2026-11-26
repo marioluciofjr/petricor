@@ -19,9 +19,9 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 - ✅ T12 Prova 1 (original × vetorizado) → `proofs/prova1-vetorizacao.png`
 
 ## Fase 3 — Harmonização ⛳
-- ⏳ T13 `Metrics` + `Harmonizer` (alturas, inclinação, suavização)
-- ⏳ T14 Correções manuais glifo a glifo
-- ⏳ T15 `StrokeExpander` (Regular) + Prova 2 ⛳
+- ✅ T13 `Metrics` + `Harmonizer` (alturas por classe, largura acompanha metade da correção; inclinação medida ≈ 0, não aplicada)
+- 🔄 T14 Correções glifo a glifo (feito: vazamento da guia no `>`/`<`/`|`, pingos falsos, espora do `E`; aguardando revisão do Mário)
+- 🔄 T15 `StrokeExpander` + compensação por zonas ✅ · Prova 2 `proofs/prova2-harmonizacao.png` aguardando aprovação ⛳
 
 ## Fase 4 — Cursiva conectada
 - ⏳ T16 `CursiveJoiner` (junção baixa/alta, variantes `.hi`)

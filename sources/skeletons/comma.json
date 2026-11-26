@@ -1,0 +1,33 @@
+{
+ "name": "comma",
+ "unicodes": [
+  44
+ ],
+ "advance": 100.3,
+ "locked": false,
+ "anchors": {},
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     100.3,
+     156.5
+    ],
+    [
+     62.9,
+     130.0
+    ],
+    [
+     42.1,
+     -2.8
+    ],
+    [
+     0.0,
+     -8.0
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

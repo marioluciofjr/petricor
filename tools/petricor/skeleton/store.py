@@ -29,7 +29,8 @@ class SkeletonStore:
     def save(self, glyph: GlyphSkeleton) -> Path:
         self.folder.mkdir(parents=True, exist_ok=True)
         path = self.path_for(glyph.name)
-        path.write_text(json.dumps(self._to_dict(glyph), ensure_ascii=False, indent=1), encoding="utf-8")
+        path.write_text(json.dumps(self._to_dict(glyph), ensure_ascii=False, indent=1) + "\n",
+                        encoding="utf-8", newline="\n")
         return path
 
     def load(self, name: str) -> GlyphSkeleton:

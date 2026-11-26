@@ -68,6 +68,24 @@ class TraceProofCommand(Command):
         print(f"Prova gerada: {out}")
 
 
+class HarmonizeCommand(Command):
+    name, help = "harmonize", "Harmoniza os esqueletos brutos → sources/skeletons (preserva os 'locked')"
+
+    def run(self) -> None:
+        from .design.harmonize_run import HarmonizeRun
+        res = HarmonizeRun(self.paths.raw, self.paths.skeletons).run()
+        print(f"{res['written']} glifos harmonizados · preservados (editados à mão): {res['locked'] or 'nenhum'}")
+
+
+class HarmonizeProofCommand(Command):
+    name, help = "proof-harmonize", "Prova 2: antes × depois da harmonização (Regular)"
+
+    def run(self) -> None:
+        from .build.harmonize_proof import HarmonizeProof
+        out = HarmonizeProof(self.paths.raw, self.paths.skeletons).render(self.paths.proofs / "prova2-harmonizacao.png")
+        print(f"Prova gerada: {out}")
+
+
 class PetricorCli:
     def __init__(self, commands: list[Command]):
         self.commands = {c.name: c for c in commands}
@@ -83,4 +101,5 @@ class PetricorCli:
 
 def build_cli(paths: Paths | None = None) -> PetricorCli:
     paths = paths or Paths()
-    return PetricorCli([TraceCommand(paths), TraceProofCommand(paths)])
+    return PetricorCli([TraceCommand(paths), TraceProofCommand(paths),
+                        HarmonizeCommand(paths), HarmonizeProofCommand(paths)])

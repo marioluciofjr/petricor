@@ -1,0 +1,33 @@
+{
+ "name": "period",
+ "unicodes": [
+  46
+ ],
+ "advance": 8.1,
+ "locked": false,
+ "anchors": {},
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     0.0,
+     44.1
+    ],
+    [
+     4.1,
+     29.9
+    ],
+    [
+     7.7,
+     14.9
+    ],
+    [
+     8.1,
+     0.0
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

@@ -68,6 +68,12 @@ class TestStrokeTracer:
         assert len(paths) == 2
         assert lengths[-1] > 160  # barra atravessa o cruzamento
 
+    def test_poda_de_galho_nao_cria_pingo_falso(self):
+        # haste com um galhinho curto: depois da poda, a ponta do galho não pode virar "ponto"
+        m = Shapes.line([(120, 30), (120, 210)]) | Shapes.line([(120, 120), (131, 112)])
+        paths, _ = Shapes.trace(m)
+        assert all(len(p.points) > 1 for p in paths)
+
     def test_anel_vira_traco_fechado(self):
         paths, _ = Shapes.trace(Shapes.ring())
         assert len(paths) == 1 and paths[0].closed
