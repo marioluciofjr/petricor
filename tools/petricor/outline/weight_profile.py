@@ -48,6 +48,38 @@ def profile(name: str) -> WeightProfile:
     return next(p for p in INSTANCES if p.name == name)
 
 
+@dataclass(frozen=True)
+class LoopInflation:
+    """Laço que cresce com o peso, para continuar aberto com caneta grossa.
+
+    Pontos a menos de r0 do centro afastam-se dele pelo fator
+    1 + rate·(caneta − 20); entre r0 e r1 o efeito some aos poucos.
+    Só muda posições (não a estrutura), então os masters seguem compatíveis.
+    """
+
+    center: tuple[float, float]
+    r0: float = 78.0
+    r1: float = 100.0
+    rate: float = 0.0032
+
+    def fn(self, pen: float):
+        cx, cy = self.center
+        k = self.rate * max(pen - 20.0, 0.0)
+
+        def inflate(p):
+            dx, dy = p[0] - cx, p[1] - cy
+            d = float(np.hypot(dx, dy))
+            w = 1.0 if d <= self.r0 else max(0.0, (self.r1 - d) / (self.r1 - self.r0))
+            s = 1 + k * w
+            return (cx + dx * s, cy + dy * s)
+
+        return inflate
+
+
+# Só para letras CURSIVAS (com âncora de saída): o 'o' de forma não tem laço.
+CURSIVE_LOOPS = {"o": LoopInflation((225.0, 340.0), r0=95.0, r1=115.0, rate=0.0018)}
+
+
 class ZoneCompensator:
     """Aplica, para um peso, o deslocamento por zonas na linha central."""
 
@@ -104,7 +136,14 @@ class ZoneCompensator:
                 return y + (dst[-1] - src[-1])
             return float(np.interp(y, src, dst))
 
-        return lambda p: (p[0] * fx, fy(p[1]))
+        loop = CURSIVE_LOOPS.get(g.name.split(".")[0]) if "exit" in g.anchors else None
+        pre = loop.fn(prof.pen) if loop else (lambda p: p)
+
+        def fn(p):
+            q = pre(p)
+            return (q[0] * fx, fy(q[1]))
+
+        return fn
 
     @staticmethod
     def _lowest_is_dot(g: GlyphSkeleton) -> bool:

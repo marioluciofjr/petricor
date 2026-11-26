@@ -62,11 +62,12 @@ CURSIVE = {
     # e a barriga (sentido horário) fecha limpa; (2) a saída passava por cima do arco → agora,
     # depois de fechar no topo, o traço entra na barriga e o rabinho SAI DE DENTRO,
     # atravessando a lateral direita, como no 'o' da caligrafia escolar.
-    "o": dict(main=["E", (40, 240), (85, 380), (150, 432), (230, 420), (285, 330), (295, 190), (255, 50),
-                    (180, 0), (105, 20), (65, 110), (62, 250), (95, 370), (160, 428),
-                    # laçadinha (pedido do Mário): desce por dentro, dá a volta e cruza antes de sair
-                    (215, 412), (250, 368), (232, 320), (190, 310), (158, 340), (166, 386), (215, 398),
-                    (270, 372), (320, 338), ("X", 370)], lead=2, lead_hi=[(70, 395)], exit="high"),
+    # (3) laçadinha maior (pedido do Mário): barriga um pouco mais larga para caber um laço
+    #     de ~120 × 145 que fica aberto até o SemiBold/Bold.
+    "o": dict(main=["E", (40, 240), (85, 380), (150, 432), (245, 425), (318, 340), (330, 190), (288, 45),
+                    (192, 0), (105, 20), (60, 110), (58, 250), (95, 375), (165, 430),
+                    (225, 426), (296, 393), (303, 316), (251, 265), (180, 276), (147, 334), (173, 397),
+                    (258, 408), (330, 372), (365, 342), ("X", 400)], lead=2, lead_hi=[(70, 395)], exit="high"),
     "p": dict(main=["E", (55, 250), K(100, 440), (100, 0), K(100, -230), (103, 150), (140, 340), (210, 432),
                     (275, 400), (295, 260), (270, 90), (200, 5), K(140, 8), (240, 25), (320, 70), ("X", 360)],
               lead=1),
