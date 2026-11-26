@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="uni021B" format="2">
+  <advance width="360"/>
+  <unicode hex="021B"/>
+  <anchor x="232" y="0" name="bottom"/>
+  <anchor x="203" y="440" name="caron"/>
+  <anchor x="293" y="0" name="ogonek"/>
+  <anchor x="166" y="495" name="top"/>
+  <outline>
+    <component base="t"/>
+    <component base="commaaccentcomb" xOffset="232"/>
+  </outline>
+</glyph>

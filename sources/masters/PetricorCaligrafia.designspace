@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <designspace format="5.0">
   <axes>
-    <axis tag="wght" name="Weight" minimum="100" maximum="900" default="400"/>
+    <axis tag="wght" name="Weight" minimum="100" maximum="600" default="400"/>
   </axes>
   <sources>
     <source filename="PetricorCaligrafia-Thin.ufo" familyname="Petricor Caligrafia" stylename="Thin">
@@ -14,9 +14,9 @@
         <dimension name="Weight" xvalue="400"/>
       </location>
     </source>
-    <source filename="PetricorCaligrafia-Black.ufo" familyname="Petricor Caligrafia" stylename="Black">
+    <source filename="PetricorCaligrafia-SemiBold.ufo" familyname="Petricor Caligrafia" stylename="SemiBold">
       <location>
-        <dimension name="Weight" xvalue="900"/>
+        <dimension name="Weight" xvalue="600"/>
       </location>
     </source>
   </sources>
@@ -49,21 +49,6 @@
     <instance familyname="Petricor Caligrafia" stylename="SemiBold" filename="instances/PetricorCaligrafia-SemiBold.ufo">
       <location>
         <dimension name="Weight" xvalue="600"/>
-      </location>
-    </instance>
-    <instance familyname="Petricor Caligrafia" stylename="Bold" filename="instances/PetricorCaligrafia-Bold.ufo">
-      <location>
-        <dimension name="Weight" xvalue="700"/>
-      </location>
-    </instance>
-    <instance familyname="Petricor Caligrafia" stylename="ExtraBold" filename="instances/PetricorCaligrafia-ExtraBold.ufo">
-      <location>
-        <dimension name="Weight" xvalue="800"/>
-      </location>
-    </instance>
-    <instance familyname="Petricor Caligrafia" stylename="Black" filename="instances/PetricorCaligrafia-Black.ufo">
-      <location>
-        <dimension name="Weight" xvalue="900"/>
       </location>
     </instance>
   </instances>

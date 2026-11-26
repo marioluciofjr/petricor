@@ -40,7 +40,9 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 ## Fase 6 — Pesos ⛳
 - ✅ T20a Pedidos do Mário: `o` cursivo refeito (não parece `a`); barra do meio do `E` em 72% da largura (não parece `[`)
 - ✅ T21 Masters Thin/Regular/Black (`MasterBuilder`); divisão em cápsulas decidida no esqueleto original → masters compatíveis (teste de integração)
-- 🔄 T22 Designspace (eixo wght 100–900, 9 instâncias) + VFs compiladas com fontmake · Prova 5 `proofs/prova5-pesos.png` (renderizada da VF via HarfBuzz) aguardando aprovação ⛳
+- ✅ T22 Designspace + VFs compiladas com fontmake · Prova 5 aprovada ⛳ (renderizada da VF via HarfBuzz)
+- ✅ T22a `o` cursivo com laçadinha grande + `LoopInflation` (laço cresce com o peso); aprovado pelo Mário
+- ✅ T22b Caligrafia limitada a 100–600 (Thin a SemiBold), Petricor 100–900 (`FamilySpec.max_wght`, contrato `test_weights.py`)
 
 ## Fase 7 — Build e QA
 - ⏳ T23 `Spacer` + `Kerner` + figuras tabulares (`tnum`)

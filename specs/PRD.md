@@ -15,7 +15,9 @@ O Mário quer eternizar a própria caligrafia em uma fonte digital **pública e 
 |---|---|---|
 | **Petricor** | De forma (não cursivas), derivadas do estilo do Mário (bojos do `O`, arcos do `n`, formas de `C`, `S`, `V`, `W`, `X`, `Z`, `K` reduzidas) | Blogs, textos corridos, interfaces |
 | **Petricor Caligrafia** | Cursivas conectadas (entradas e saídas padronizadas + `calt`) | Títulos, convites, peças afetivas |
-Maiúsculas, algarismos, pontuação e símbolos são compartilhados. As duas famílias têm 9 pesos e seguem juntas no mesmo repositório e na mesma issue do Google Fonts.
+Maiúsculas, algarismos, pontuação e símbolos são compartilhados. As duas famílias seguem juntas no mesmo repositório e na mesma issue do Google Fonts.
+
+**Pesos (decisão do Mário após a Prova 5):** Petricor tem 9 pesos (Thin 100 → Black 900). Petricor Caligrafia vai de Thin 100 a **SemiBold 600** (6 pesos), porque em Bold e Black os laços da cursiva fechavam e o texto ficava ilegível.
 
 ## 3. Objetivos e resultados esperados
 | # | Objetivo | Critério de sucesso |

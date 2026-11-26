@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <glyph name="oacute.hi" format="2">
-  <advance width="370"/>
-  <anchor x="168" y="0" name="bottom"/>
-  <anchor x="364" y="560" name="caron"/>
-  <anchor x="256" y="0" name="ogonek"/>
-  <anchor x="184" y="495" name="top"/>
+  <advance width="400"/>
+  <anchor x="186" y="0" name="bottom"/>
+  <anchor x="394" y="560" name="caron"/>
+  <anchor x="295" y="0" name="ogonek"/>
+  <anchor x="200" y="495" name="top"/>
   <outline>
     <component base="o.hi"/>
-    <component base="acutecomb" xOffset="184" yOffset="495"/>
+    <component base="acutecomb" xOffset="200" yOffset="495"/>
   </outline>
 </glyph>

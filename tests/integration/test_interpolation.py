@@ -5,7 +5,6 @@ import pytest
 
 from petricor.outline.composer import MasterGlyphSet
 from petricor.outline.family import Families
-from petricor.outline.weight_profile import MASTERS
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -19,6 +18,6 @@ def _structure(glyph):
 class TestMastersCompatibility:
     def test_todos_os_glifos_tem_estrutura_igual_nos_masters(self, family):
         skel = family.glyphs()
-        built = [MasterGlyphSet().build(skel, p) for p in MASTERS]
+        built = [MasterGlyphSet().build(skel, p) for p in family.masters()]
         bad = [n for n in built[0] if len({repr(_structure(b[n])) for b in built}) > 1]
         assert not bad, f"Glifos incompatíveis entre Thin/Regular/Black: {bad[:15]}"

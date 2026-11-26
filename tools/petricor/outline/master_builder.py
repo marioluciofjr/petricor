@@ -13,7 +13,7 @@ from .family import FamilySpec
 from .feature_writer import FeatureWriter
 from .font_info import FontInfo
 from .glyph_factory import OutlineGlyph
-from .weight_profile import INSTANCES, MASTERS, WeightProfile
+from .weight_profile import WeightProfile
 
 UFO_ANCHORS = {"top", "bottom", "ogonek", "caron", "_top", "_bottom", "_ogonek", "_caron"}
 
@@ -68,11 +68,11 @@ class MasterBuilder:
 
     def build(self, family: FamilySpec) -> Path:
         skeletons = family.glyphs()
-        masters = {p.name: self.glyphset.build(skeletons, p) for p in MASTERS}
+        masters = {p.name: self.glyphset.build(skeletons, p) for p in family.masters()}
         names = set(next(iter(masters.values())))
         ctx = MasterContext(family, FontInfo(family.name), self._win_metrics(masters),
                             FeatureWriter(names, family.high_exit_names(skeletons)).write())
-        paths = {p.name: self._write_ufo(ctx, p, masters[p.name]) for p in MASTERS}
+        paths = {p.name: self._write_ufo(ctx, p, masters[p.name]) for p in family.masters()}
         return self._write_designspace(family, paths)
 
     @staticmethod
@@ -115,16 +115,16 @@ class MasterBuilder:
         doc = DesignSpaceDocument()
         axis = AxisDescriptor()
         axis.name, axis.tag = "Weight", "wght"
-        axis.minimum, axis.default, axis.maximum = 100, 400, 900
+        axis.minimum, axis.default, axis.maximum = 100, 400, family.max_wght
         doc.addAxis(axis)
-        for prof in MASTERS:
+        for prof in family.masters():
             src = SourceDescriptor()
             src.path = str(paths[prof.name])
             src.filename = paths[prof.name].name
             src.familyName, src.styleName = family.name, prof.name
             src.location = {"Weight": prof.wght}
             doc.addSource(src)
-        for prof in INSTANCES:
+        for prof in family.instances():
             inst = InstanceDescriptor()
             inst.familyName, inst.styleName = family.name, prof.name
             inst.location = {"Weight": prof.wght}
