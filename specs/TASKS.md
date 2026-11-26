@@ -55,7 +55,7 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 - ✅ T27 CI `.github/workflows/build.yaml` (build + testes + fontbakery + artefato)
 
 ## Fase 9 — Publicação ⛳
-- 🔄 T28 Repositório público criado (github.com/marioluciofjr/petricor) ✅ · push bloqueado: o login do `gh` não tem o escopo `workflow` → Mário roda `gh auth refresh -h github.com -s workflow` ⛳
-- ⏳ T29 Mário assina o CLA individual do Google (cla.developers.google.com) ⛳
+- ✅ T28 Repositório público github.com/marioluciofjr/petricor criado e enviado (escopo `workflow` autorizado pelo Mário) ⛳
+- ✅ T29 Mário assinou o Google Individual CLA (2026-11-25) ⛳
 - ⏳ T30 Abrir a issue "Add Petricor" no google/fonts (texto pronto, com declaração de uso de IA exigida pelo modelo) ⛳
 - ✅ T30a Nome verificado: namecheck.fontdata.com e DaFont sem fontes "Petricor"/"Petricor Caligrafia"

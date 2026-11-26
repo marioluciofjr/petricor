@@ -7,7 +7,9 @@ __pycache__/
 .pytest_cache/
 
 # Artefatos intermediários (gerados pelo pipeline)
-build/
+# "/build/" (com barra inicial) = só a pasta da RAIZ; sem a barra, o git também
+# ignoraria o pacote de código tools/petricor/build/ (erro já corrigido).
+/build/
 instance_ufo/
 instance_ufos/
 master_ufo/
