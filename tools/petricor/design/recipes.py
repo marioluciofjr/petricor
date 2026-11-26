@@ -58,11 +58,13 @@ CURSIVE = {
                     (445, 15), (495, 0), (555, 45), ("X", 595)], lead=1),
     "n": dict(main=["E", (50, 250), K(85, 430), K(85, 0), (90, 250), (135, 390), (190, 432), (240, 400),
                     (255, 300), (255, 90), (275, 15), (325, 0), (385, 45), ("X", 425)], lead=1),
-    # 'o' refeito a pedido do Mário (parecia 'a'): o conector sobe POR FORA, pela esquerda,
-    # a barriga é desenhada no sentido horário e fecha limpa; sai pelo alto com um arremate.
+    # 'o' refeito a pedido do Mário: (1) parecia 'a' → o conector sobe POR FORA, pela esquerda,
+    # e a barriga (sentido horário) fecha limpa; (2) a saída passava por cima do arco → agora,
+    # depois de fechar no topo, o traço entra na barriga e o rabinho SAI DE DENTRO,
+    # atravessando a lateral direita, como no 'o' da caligrafia escolar.
     "o": dict(main=["E", (40, 240), (85, 380), (150, 432), (230, 420), (285, 330), (295, 190), (255, 50),
-                    (180, 0), (105, 20), (65, 110), (62, 250), (95, 370), (165, 428), (240, 418), (300, 365),
-                    ("X", 370)], lead=2, lead_hi=[(70, 395)], exit="high"),
+                    (180, 0), (105, 20), (65, 110), (62, 250), (95, 370), (160, 428), (200, 408), (206, 366),
+                    (222, 338), (272, 330), (325, 330), ("X", 370)], lead=2, lead_hi=[(70, 395)], exit="high"),
     "p": dict(main=["E", (55, 250), K(100, 440), (100, 0), K(100, -230), (103, 150), (140, 340), (210, 432),
                     (275, 400), (295, 260), (270, 90), (200, 5), K(140, 8), (240, 25), (320, 70), ("X", 360)],
               lead=1),
