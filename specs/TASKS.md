@@ -57,5 +57,6 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 ## Fase 9 — Publicação ⛳
 - ✅ T28 Repositório público github.com/marioluciofjr/petricor criado e enviado (escopo `workflow` autorizado pelo Mário) ⛳
 - ✅ T29 Mário assinou o Google Individual CLA (2026-11-25) ⛳
+- ✅ T29a CI verde no GitHub (build + 113 testes + fontbakery por família, 2026-11-26)
 - ⏳ T30 Abrir a issue "Add Petricor" no google/fonts (texto pronto, com declaração de uso de IA exigida pelo modelo) ⛳
 - ✅ T30a Nome verificado: namecheck.fontdata.com e DaFont sem fontes "Petricor"/"Petricor Caligrafia"
