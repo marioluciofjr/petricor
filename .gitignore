@@ -1,5 +1,6 @@
 # Ambiente Python
 .venv/
+.venv-qa/
 __pycache__/
 *.pyc
 *.egg-info/
@@ -8,7 +9,12 @@ __pycache__/
 # Artefatos intermediários (gerados pelo pipeline)
 build/
 instance_ufo/
+instance_ufos/
 master_ufo/
+sources/masters/instance_ufos/
+sources/build.ninja
+sources/.ninja_log
+fonts/report/
 
 # Sistema
 .DS_Store

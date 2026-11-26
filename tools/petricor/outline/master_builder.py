@@ -49,6 +49,33 @@ class UfoGlyphWriter:
         return (round(float(p[0]), 2), round(float(p[1]), 2))
 
 
+class KerningWriter:
+    """Calcula o kerning óptico de um master e grava grupos + pares no UFO."""
+
+    CAPS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    LOWER_RIGHT = list("acdegoqsuvwxyz")
+    LOWER_LEFT = list("frvwy")
+    PUNCT = ["period", "comma", "hyphen", "quoteright", "quotedblright"]
+
+    def __init__(self, family: FamilySpec):
+        # na Caligrafia, minúscula à esquerda já se liga pela saída: não recebe kerning
+        self.cursive = family.max_wght < 900 or "Caligrafia" in family.name
+
+    def write(self, ufo, glyphs) -> None:
+        from ..design.kerner import Kerner, KerningGroups
+        bases = self.CAPS + self.LOWER_RIGHT + self.LOWER_LEFT
+        groups, keys = KerningGroups.build(glyphs, bases)
+        kerner = Kerner(glyphs)
+        lefts = self.CAPS + ([] if self.cursive else self.LOWER_LEFT)
+        caps_ref = kerner.kern_table(lefts, self.CAPS + self.PUNCT, ("H", "H"))
+        lower_ref = kerner.kern_table(lefts, self.LOWER_RIGHT, ("H", "n"))
+        ufo.groups.update(groups)
+        for (a, b), v in {**caps_ref, **lower_ref}.items():
+            ka = keys[a][0] if a in keys else a
+            kb = keys[b][1] if b in keys else b
+            ufo.kerning[(ka, kb)] = v
+
+
 @dataclass(frozen=True)
 class MasterContext:
     """O que é igual para os 3 masters de uma família (agrupado num objeto)."""
@@ -89,7 +116,8 @@ class MasterBuilder:
                     cb = boxes.get(c.base)
                     if cb:
                         ymin, ymax = min(ymin, cb[1] + c.dy), max(ymax, cb[3] + c.dy)
-        return int(np.ceil(ymax)) + 10, int(np.ceil(-ymin)) + 10
+        # regra do GF: win cobre a caixa da família e nunca é menor que typo (1000 / 300)
+        return max(int(np.ceil(ymax)) + 10, 1000), max(int(np.ceil(-ymin)) + 10, 300)
 
     def _write_ufo(self, ctx: MasterContext, prof: WeightProfile, glyphs) -> Path:
         ufo = ufoLib2.Font()
@@ -99,6 +127,7 @@ class MasterBuilder:
             UfoGlyphWriter.write(ufo, glyphs[name])
         ufo.glyphOrder = order
         ufo.features.text = ctx.features
+        KerningWriter(ctx.family).write(ufo, glyphs)
         path = self.out_dir / f"{ctx.family.file_stem}-{prof.name}.ufo"
         path.parent.mkdir(parents=True, exist_ok=True)
         ufo.save(path, overwrite=True)

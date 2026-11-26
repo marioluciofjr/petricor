@@ -1,7 +1,12 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
 @TopMarks = [acutecomb brevecomb caroncomb circumflexcomb dieresiscomb dotaccentcomb gravecomb hungarumlautcomb macroncomb ringcomb tildecomb];
+@BottomMarks = [commaaccentcomb cedillacomb ogonekcomb];
 
 feature ccmp {
-  sub [i j]' @TopMarks by [idotless jdotless];
+  sub [i j iogonek]' @TopMarks by [idotless jdotless iogonek.dotless];
+  sub [i j iogonek]' @BottomMarks @TopMarks by [idotless jdotless iogonek.dotless];
 } ccmp;
 
 feature tnum {

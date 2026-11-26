@@ -145,6 +145,7 @@ class ExtraBuilder:
         out.append(self._glyph(0x2022, [SkeletonPen.spline([(0, 310), (-30, 280), (0, 250), (30, 280)], closed=True),
                                         SkeletonPen.dot((0, 280))]))
         out.append(self._glyph(0x2026, period + o.move(period, 230) + o.move(period, 460)))
+        out.append(self._dotted_circle())
         hy = self._s("hyphen")
         hyb = o.bounds(hy)
         for u, w in ((0x2013, 480), (0x2014, 960)):
@@ -159,6 +160,14 @@ class ExtraBuilder:
             o.move(o.scale(M, k), (tb[2] - tb[0]) * k + 40 - mb[0] * k, 700 - 700 * k)
         out.append(self._glyph(0x2122, tm))
         return out
+
+    def _dotted_circle(self) -> GlyphSkeleton:
+        """◌ (U+25CC): base técnica onde os sistemas mostram acentos soltos.
+        Tem âncoras próprias para os acentos encaixarem nele."""
+        cx, cy, r = 230.0, 230.0, 190.0
+        dots = [SkeletonPen.dot((cx + r * np.cos(a), cy + r * np.sin(a))) for a in np.linspace(0, 2 * np.pi, 12, endpoint=False)]
+        anchors = {"top": (cx, 495.0), "bottom": (cx, 0.0), "ogonek": (cx + 120, 0.0), "caron": (cx + 160, 560.0)}
+        return self._glyph(0x25CC, dots, anchors=anchors)
 
     def _quotes(self) -> list[GlyphSkeleton]:
         """Aspas curvas: a vírgula do Mário é reta (girada fica igual), então o gesto ganha curva.

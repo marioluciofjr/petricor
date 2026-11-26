@@ -19,6 +19,10 @@ class TestFeatureWriter:
         fea = FeatureWriter(self.NAMES, set()).write()
         assert "sub [i]' @TopMarks by [idotless];" in fea
 
+    def test_declara_script_latino(self):
+        fea = FeatureWriter(self.NAMES, set()).write()
+        assert fea.startswith("languagesystem DFLT dflt;\nlanguagesystem latn dflt;")
+
     def test_tnum_mapeia_algarismos(self):
         fea = FeatureWriter(self.NAMES, set()).write()
         assert "sub [zero one] by [zero.tf one.tf];" in fea

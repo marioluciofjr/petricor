@@ -45,13 +45,14 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 - ✅ T22b Caligrafia limitada a 100–600 (Thin a SemiBold), Petricor 100–900 (`FamilySpec.max_wght`, contrato `test_weights.py`)
 
 ## Fase 7 — Build e QA
-- ⏳ T23 `Spacer` + `Kerner` + figuras tabulares (`tnum`)
-- ⏳ T24 `config.yaml` + `GfBuilder` (VF, estáticas, webfonts)
-- ⏳ T25 `QaRunner` (Fontspector) até zerar FAIL/FATAL
+- ✅ T23 `Kerner` óptico automático com grupos (acentuados herdam) + `tnum`; espaço cresce com o peso; sinais matemáticos com largura igual
+- ✅ T24 `sources/config.yaml` + gftools builder: VFs, 15 TTF com hinting, OTF, WOFF2 em `fonts/`
+- ✅ T25 Fontbakery 1.1 (perfil googlefonts): **0 FAIL** nas duas famílias; WARNs justificados em TESTS.md
+- ✅ T25a Pedidos do Mário: 5 alinhado aos demais algarismos (bug do "pingo" na harmonização); cifrão refeito
 
 ## Fase 8 — Documentação
-- ⏳ T26 OFL.txt, AUTHORS.txt, CONTRIBUTORS.txt, README raiz com imagem
-- ⏳ T27 CI `.github/workflows/build.yaml` + `proofs/index.html`
+- ✅ T26 OFL.txt (modelo GF), AUTHORS.txt, CONTRIBUTORS.txt, README raiz com espécimes (`documentation/`)
+- ✅ T27 CI `.github/workflows/build.yaml` (build + testes + fontbakery + artefato)
 
 ## Fase 9 — Publicação ⛳
 - ⏳ T28 Criar repositório público e dar push ⛳

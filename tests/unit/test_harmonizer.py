@@ -54,6 +54,12 @@ class TestHarmonizer:
         assert stem.hi == pytest.approx(M.x_height, abs=1)
         assert Extent.of(out.strokes[1:]).lo > M.x_height  # pingo continua acima
 
+    def test_barra_do_5_conta_na_altura(self):
+        # a bandeira do 5 é um traço separado no topo, mas é longa: não é pingo
+        g = GlyphSkeleton("five", [], [Glyphs.line(100, 76, 100, 560), Glyphs.line(100, 600, 300, 610)])
+        out = Harmonizer().harmonize(g, {})
+        assert Extent.of(out.strokes).hi == pytest.approx(M.digit_height, abs=1)
+
     def test_pontuacao_so_desloca_sem_mudar_tamanho(self):
         g = Glyphs.make("period", 30, 60)
         out = Harmonizer().harmonize(g, {})

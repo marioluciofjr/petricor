@@ -126,7 +126,21 @@ class GlyphCorrections:
         self.jitter = jitter or HandJitter(amplitude=3.0)
 
     def all(self) -> list[GlyphSkeleton]:
-        return [self.longer_e_middle()]
+        return [self.longer_e_middle(), self.straight_dollar()]
+
+    def straight_dollar(self) -> GlyphSkeleton:
+        """Cifrão refeito (o original saiu torto): o 'S' do Mário um pouco menor,
+        atravessado por um traço vertical reto que passa acima e abaixo dele."""
+        s = self.base.load("S")
+        x0, y0, x1, y1 = s.bounds()
+        sx, sy = 0.86, 0.92
+        body = [st.transformed(lambda p: ((p[0] - x0) * sx, (p[1] - y0) * sy)) for st in s.strokes]
+        cx = (x1 - x0) * sx / 2
+        bar = self.jitter.apply(SkeletonPen.spline([(cx + 4, -80), (cx, 350), (cx - 4, 780)]), "dollar")
+        g = GlyphSkeleton("dollar", [0x24], body + [bar])
+        b = g.bounds()
+        g.advance = b[2] - b[0]
+        return g
 
     def longer_e_middle(self) -> GlyphSkeleton:
         g = self.base.load("E")
@@ -222,6 +236,7 @@ class DeriveRun:
                 self._save(layer, g)
         catalog = AccentCatalog()
         composites = catalog.composites(sorted(glyphsets.unicodes_per_glyphset("GF_Latin_Core")))
+        composites.append(catalog.dotless_iogonek())  # į sem pingo (regra ccmp de 'soft dotted')
         for g in composites:
             self._save(self.common, g)
         cursive_stack = LayerStack([self.cursive, self.common, self.base])

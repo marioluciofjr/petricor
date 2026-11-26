@@ -28,6 +28,19 @@ class Spacer:
         self.default = punct
         self.space_width = 260
 
+    # sinais matemáticos com a MESMA largura (tabelas e contas ficam alinhadas)
+    MATH = {"plus", "minus", "multiply", "divide", "equal", "less", "greater"}
+    MATH_ADVANCE = 520
+
+    @staticmethod
+    def _center_in(glyph, b, advance: float):
+        dx = (advance - (b[2] - b[0])) / 2 - b[0]
+        glyph.contours = [[Cubic(*[(p[0] + dx, p[1]) for p in (c.p0, c.p1, c.p2, c.p3)]) for c in cont]
+                          for cont in glyph.contours]
+        glyph.anchors = {k: (v[0] + dx, v[1]) for k, v in glyph.anchors.items()}
+        glyph.advance = advance
+        return glyph
+
     def rule_for(self, name: str) -> SpacingRule:
         return self.rules.get(name, self.default)
 
@@ -41,6 +54,8 @@ class Spacer:
         if any(k.startswith("_") for k in glyph.anchors):
             glyph.advance = 0.0  # acento combinante: largura zero, centrado na âncora
             return glyph
+        if glyph.name in self.MATH:
+            return self._center_in(glyph, b, self.MATH_ADVANCE)
         if "exit" in glyph.anchors:
             # cursiva conectada: sem 'ar' lateral; a largura vai da entrada até a saída,
             # então a saída desta letra coincide com a entrada da próxima

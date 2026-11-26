@@ -33,7 +33,9 @@ class Composer:
             advance = x_cursor + last.advance
         else:
             advance = skel.advance or first.advance
-        return OutlineGlyph(skel.name, list(skel.unicodes), [], advance, comps, dict(first.anchors))
+        # composto nunca é marca: não herda âncoras '_top' etc. (senão ´ ¨ virariam marcas no GDEF)
+        anchors = {k: v for k, v in first.anchors.items() if not k.startswith("_")}
+        return OutlineGlyph(skel.name, list(skel.unicodes), [], advance, comps, anchors)
 
 
 class MasterGlyphSet:

@@ -304,6 +304,7 @@
       <string>uni021A</string>
       <string>uni021B</string>
       <string>uni1E9E</string>
+      <string>uni25CC</string>
       <string>uogonek</string>
       <string>uring</string>
       <string>v</string>
@@ -367,6 +368,8 @@
       <string>idotless.hi</string>
       <string>igrave.hi</string>
       <string>imacron.hi</string>
+      <string>iogonek.dotless</string>
+      <string>iogonek.dotless.hi</string>
       <string>iogonek.hi</string>
       <string>j.hi</string>
       <string>jdotless.hi</string>

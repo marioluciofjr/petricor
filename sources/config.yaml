@@ -1,0 +1,12 @@
+# Configuração do gftools builder (build oficial do Google Fonts).
+# Rodar a partir da raiz do repositório:  gftools builder sources/config.yaml
+sources:
+  - masters/Petricor.designspace
+  - masters/PetricorCaligrafia.designspace
+outputDir: ../fonts
+axisOrder:
+  - wght
+buildVariable: true
+buildStatic: true
+buildWebfont: true
+autohintTTF: true

@@ -135,6 +135,12 @@ class AccentCatalog:
         return GlyphSkeleton(GlyphNamer.name(u), [u], components=[Component(base_name), Component(mark, anchor=role)])
 
     @staticmethod
+    def dotless_iogonek() -> GlyphSkeleton:
+        """'į' sem pingo: usado quando į recebe acento em cima (lituano)."""
+        return GlyphSkeleton("iogonek.dotless", [], components=[Component("idotless"),
+                                                               Component("ogonekcomb", anchor="ogonek")])
+
+    @staticmethod
     def high_variants(composites: list[GlyphSkeleton], has_hi) -> list[GlyphSkeleton]:
         """Para a Caligrafia: 'aacute.hi' = 'a.hi' + acento (entrada pela junção alta)."""
         out = []

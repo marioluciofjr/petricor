@@ -143,16 +143,20 @@ class Harmonizer:
     def __init__(self, classifier: GlyphClassifier | None = None):
         self.classifier = classifier or GlyphClassifier()
 
-    @staticmethod
-    def main_strokes(g: GlyphSkeleton) -> list[Stroke]:
-        """Ignora pingos (traços minúsculos acima do resto) na medição."""
+    DOT_MAX_LENGTH = 80  # pingo = traço CURTO; barras (do 5, do T) são longas e contam na medição
+
+    @classmethod
+    def main_strokes(cls, g: GlyphSkeleton) -> list[Stroke]:
+        """Ignora pingos (traços curtos acima do resto) na medição da altura."""
         if len(g.strokes) < 2:
             return g.strokes
         exts = [Extent.of([s]) for s in g.strokes]
         heights = [e.hi - e.lo for e in exts]
+        lengths = [float(np.linalg.norm(np.diff(s.sample(16), axis=0), axis=1).sum()) for s in g.strokes]
         tallest = max(heights)
         body_top = max(e.hi for e, h in zip(exts, heights) if h > 0.3 * tallest)
-        keep = [s for s, e, h in zip(g.strokes, exts, heights) if not (h < 0.25 * tallest and e.lo > body_top - 10)]
+        keep = [s for s, e, h, L in zip(g.strokes, exts, heights, lengths)
+                if not (h < 0.25 * tallest and e.lo > body_top - 10 and L < cls.DOT_MAX_LENGTH)]
         return keep or g.strokes
 
     def class_scales(self, glyphs: list[GlyphSkeleton]) -> dict[Rule, float]:

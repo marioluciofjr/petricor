@@ -14,7 +14,7 @@ class FontInfo:
     family: str
     metrics: Metrics = DEFAULT_METRICS
     version: tuple[int, int] = (1, 0)
-    designer: str = "Mario Lucio"
+    designer: str = "Mário Lúcio"
     designer_url: str = "https://github.com/marioluciofjr"
 
     @property

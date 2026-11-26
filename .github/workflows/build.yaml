@@ -1,0 +1,53 @@
+# Compila as fontes e roda a verificação do Google Fonts a cada envio.
+name: Build e verificação
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Instalar dependências do build
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Compilar com o gftools builder
+        run: |
+          source .venv/bin/activate
+          gftools builder sources/config.yaml
+
+      - name: Rodar os testes do pipeline
+        run: |
+          source .venv/bin/activate
+          pip install -e .
+          pytest -q
+
+      - name: Verificação do Google Fonts (fontbakery)
+        run: |
+          python -m venv .venv-qa
+          .venv-qa/bin/pip install -r requirements-qa.txt
+          mkdir -p fonts/report
+          .venv-qa/bin/fontbakery check-googlefonts \
+            "fonts/variable/Petricor[wght].ttf" "fonts/variable/PetricorCaligrafia[wght].ttf" \
+            --ghmarkdown fonts/report/fontbakery.md -l WARN
+
+      - name: Publicar as fontes como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: petricor-fonts
+          path: fonts/

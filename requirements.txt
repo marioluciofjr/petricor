@@ -10,8 +10,8 @@ ufoLib2
 fontmake
 skia-pathops
 glyphsets
-# Ferramentas oficiais do Google Fonts (build e controle de qualidade)
+# Ferramentas oficiais do Google Fonts (build)
 gftools
-fontbakery[googlefonts]
+# O verificador (fontbakery/fontspector) conflita com o gftools: fica em requirements-qa.txt (.venv-qa)
 # Testes (TDD)
 pytest

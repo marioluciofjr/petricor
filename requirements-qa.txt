@@ -1,0 +1,5 @@
+# Ambiente SEPARADO de controle de qualidade (.venv-qa).
+# O fontbakery exige versões de protobuf/axisregistry que conflitam com o gftools.
+#   py -3.13 -m venv .venv-qa
+#   .\.venv-qa\Scripts\python.exe -m pip install -r requirements-qa.txt
+fontbakery[googlefonts]
