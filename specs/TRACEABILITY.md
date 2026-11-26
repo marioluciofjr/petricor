@@ -17,8 +17,8 @@ Nada é commitado sem conferir esta matriz.
 | RF08 Algarismos tabulares | T19, T23 | `outline/composer.py` (`.tf`), `outline/feature_writer.py` | `unit/test_accents.py`, `contract/test_features.py` | 🔄 |
 | RF09 Build em um comando | T24–T25 | `sources/config.yaml` (gftools builder), `outline/master_builder.py`, `outline/font_info.py`, `outline/feature_writer.py` | `integration/test_interpolation.py`, `contract/test_weights.py`, fontbakery (CI) | ✅ |
 | RF10 Provas visuais | T12, T15, T17, T20, T22 | `build/trace_proof.py` (prova 1), `build/proof_renderer.py` | `regression/test_snapshots.py` | ⏳ |
-| RF11 Repositório upstream | T26–T28 | `README.md`, `OFL.txt`, `AUTHORS.txt`, `CONTRIBUTORS.txt`, `documentation/`, `.github/workflows/build.yaml` | fontbakery (CI) | 🔄 |
-| RF12 Issue no google/fonts | T30 | — | checklist manual | ⏳ |
+| RF11 Repositório upstream | T26–T28 | `README.md`, `OFL.txt`, `AUTHORS.txt`, `CONTRIBUTORS.txt`, `documentation/`, `.github/workflows/build.yaml` | fontbakery (CI verde) | ✅ |
+| RF12 Issue no google/fonts | T30 | google/fonts#11519 | checklist do modelo "Add Font" | ✅ |
 | RNF01 OFL sem RFN | T26 | `OFL.txt`, `outline/font_info.py` | fontbakery (`ofl_body_text`, `license`) | ✅ |
 | RNF04 Métricas verticais GF | T22, T25 | `outline/font_info.py`, `outline/master_builder.py` (win) | fontbakery (`vertical_metrics`, `win_ascent`) | ✅ |
 | RNF03 TDD | T06 | `tests/` | `pytest` | 🔄 |
