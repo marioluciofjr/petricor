@@ -10,13 +10,21 @@ O Mário quer eternizar a própria caligrafia em uma fonte digital **pública e 
 - Usuárias do Google Fonts (web, Google Docs/Slides, apps).
 - O próprio Mário, como autor e mantenedor.
 
+## 2.1 Duas famílias (decisão do Mário após a Prova 2, 2026-11-25)
+| Família | Minúsculas | Uso principal |
+|---|---|---|
+| **Petricor** | De forma (não cursivas), derivadas do estilo do Mário (bojos do `O`, arcos do `n`, formas de `C`, `S`, `V`, `W`, `X`, `Z`, `K` reduzidas) | Blogs, textos corridos, interfaces |
+| **Petricor Caligrafia** | Cursivas conectadas (entradas e saídas padronizadas + `calt`) | Títulos, convites, peças afetivas |
+Maiúsculas, algarismos, pontuação e símbolos são compartilhados. As duas famílias têm 9 pesos e seguem juntas no mesmo repositório e na mesma issue do Google Fonts.
+
 ## 3. Objetivos e resultados esperados
 | # | Objetivo | Critério de sucesso |
 |---|---|---|
 | O1 | Fonte fiel à letra do Mário | O Mário aprova as provas 1, 2 e 5 |
 | O2 | Harmonização **leve** | Linha de base, altura-x e altura das maiúsculas uniformes (desvio ≤ 2% do UPM) |
-| O3 | 9 pesos (Thin 100 → Black 900) | Fonte variável `Petricor[wght].ttf` com eixo `wght` 100–900 e 9 instâncias nomeadas |
-| O4 | Minúsculas cursivas **conectadas** | Texto em português digitado sem quebras visíveis entre minúsculas (`calt`) |
+| O3 | 9 pesos (Thin 100 → Black 900) | `Petricor[wght].ttf` e `PetricorCaligrafia[wght].ttf`, eixo `wght` 100–900 e 9 instâncias nomeadas |
+| O4 | Minúsculas cursivas **conectadas** (Caligrafia) | Texto em português digitado sem quebras visíveis entre minúsculas (`calt`) |
+| O4b | Minúsculas de forma (Petricor) | Legíveis em parágrafos de blog a 16–18 px |
 | O5 | Cobertura **GF Latin Core** | 100% dos glifos da lista oficial |
 | O6 | Pronta para o Google Fonts | Fontspector (perfil `googlefonts`) sem FAIL/FATAL; repositório público no padrão upstream; issue de submissão aberta |
 
@@ -33,6 +41,9 @@ O Mário quer eternizar a própria caligrafia em uma fonte digital **pública e 
 - **RF10** Provas visuais (PNG/HTML) em cada fase.
 - **RF11** Repositório público com estrutura upstream do Google Fonts e CI.
 - **RF12** Abrir a issue "Add Petricor" no google/fonts (após confirmação).
+- **RF13** Minúsculas de forma derivadas do estilo do Mário para a família Petricor.
+- **RF14** Redesenhar `0`, `9` e `@` (tremidos na escrita original).
+- **RF15** Build de duas famílias a partir das mesmas fontes (camadas de esqueleto compartilhadas).
 
 ## 5. Requisitos não funcionais
 - **RNF01** Licença OFL 1.1 sem Reserved Font Name.

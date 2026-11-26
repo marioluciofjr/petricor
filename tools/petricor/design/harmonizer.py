@@ -99,7 +99,12 @@ class GlyphClassifier:
         self.metrics = m
 
     def rule_for(self, name: str) -> Rule | None:
-        return self.rules.get(name)
+        return self.rules.get(self.base_name(name))
+
+    @staticmethod
+    def base_name(name: str) -> str:
+        """'a.hi' → 'a' (variantes usam as regras da letra-base)."""
+        return name.split(".")[0]
 
     def sitting_offset(self) -> float:
         return self.metrics.sitting_offset
@@ -120,6 +125,7 @@ class GlyphClassifier:
             "f": [(desc, 1), (base, 1), (xh, -1), (asc, -1)],
             "t": [(base, 1), (xh, -1), (m.t_height, -1)],
         }
+        name = self.base_name(name)
         if name in special:
             return special[name]
         rule = self.rule_for(name)

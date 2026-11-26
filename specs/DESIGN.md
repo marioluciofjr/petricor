@@ -41,11 +41,18 @@ Masters: Thin (100), Regular (400) e Black (900). Pontas e junções **redondas*
 4. Traços duplicados (caneta que passou duas vezes) viram um só.
 5. Laços pequenos demais para o Black são abertos ou alargados.
 
-## 5. Cursiva conectada
-- Toda minúscula entra pela esquerda e sai pela direita na **junção baixa**.
-- Letras que terminam no alto (`o`, `v`, `w`, `b`, `r`) saem na **junção alta**; a letra seguinte usa a variante `.hi`.
-- Primeira letra da palavra: mantém o traço de entrada (autenticidade). A remoção via `calt` só entra se a prova 3 mostrar ganho.
-- Maiúsculas não se conectam.
+## 5. Cursiva conectada (Petricor Caligrafia)
+- Após a Prova 2, o Mário pediu "harmonizar mais para conectar de fato": cada minúscula foi **redesenhada como um traço contínuo** seguindo a forma da letra dele (`design/recipes.py`).
+- Toda minúscula entra em **(0, 110)** subindo a 35° e sai em **(largura, 110)** com a mesma inclinação; a saída de uma letra cai exatamente sobre a entrada da próxima (sem 'ar' lateral).
+- `o`, `v`, `w` e `b` saem pela **junção alta (330, horizontal)**; a letra seguinte usa a variante `.hi` (regra `calt`).
+- Um tremor controlado (`HandJitter`, ±4 un, determinístico) mantém a naturalidade, protegendo as pontas de conexão.
+- Primeira letra da palavra mantém o traço de entrada. Maiúsculas não se conectam.
+
+## 5b. Minúsculas de forma (Petricor)
+- Receitas próprias no traço do Mário: bojo de uma só barriga (`a`, `d`, `g`, `q`), arcos (`n`, `m`, `h`, `r`), hastes com pequeno arremate (`l`, `t`).
+- `s`, `v`, `w` = maiúsculas do Mário reduzidas à altura-x (o esqueleto mantém a mesma caneta).
+- `x`, `y`, `z` já eram de forma na escrita do Mário: usados como estão.
+- `j` tem espaçamento esquerdo negativo (o gancho passa sob a letra anterior).
 
 ## 6. Glifos desenhados no estilo do Mário
 Acentos com o mesmo traço monolinear e a mesma inclinação. O til deriva do `~` escrito; o trema, dos pontos do `i`/`:`; o anel, do `°`. Aspas curvas derivam da vírgula.

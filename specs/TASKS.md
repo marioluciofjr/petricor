@@ -20,11 +20,16 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 
 ## Fase 3 — Harmonização ⛳
 - ✅ T13 `Metrics` + `Harmonizer` (alturas por classe, largura acompanha metade da correção; inclinação medida ≈ 0, não aplicada)
-- 🔄 T14 Correções glifo a glifo (feito: vazamento da guia no `>`/`<`/`|`, pingos falsos, espora do `E`; aguardando revisão do Mário)
-- 🔄 T15 `StrokeExpander` + compensação por zonas ✅ · Prova 2 `proofs/prova2-harmonizacao.png` aguardando aprovação ⛳
+- ✅ T14 Correções glifo a glifo (vazamento da guia no `>`/`<`/`|`, pingos falsos, espora do `E`)
+- ✅ T15 `StrokeExpander` + compensação por zonas · Prova 2 revisada pelo Mário ⛳ → pediu: harmonizar mais a cursiva, refazer 0/9/@, criar família não cursiva
+- ✅ T15a Camadas de esqueleto por família (`print/`, `cursive/`, `redraw/` sobre a base) + `FamilySpec`
+- ✅ T15b `SkeletonPen` + `HandJitter` + redesenho de `0`, `9`, `@`
+- ✅ T15c `PrintBuilder`: minúsculas de forma (receitas + S/V/W reduzidas + x/y/z da mão do Mário)
+- ✅ T15e Cursivas redesenhadas como traço contínuo com junção padrão (baixa 110 a 35°; alta 330) + variantes `.hi` (antecipa T16)
+- 🔄 T15d Prova 2b `proofs/prova2b-familias.png` aguardando aprovação ⛳
 
 ## Fase 4 — Cursiva conectada
-- ⏳ T16 `CursiveJoiner` (junção baixa/alta, variantes `.hi`)
+- ✅ T16 Junção baixa/alta e variantes `.hi` (feito em T15e: `CursiveBuilder`)
 - ⏳ T17 `FeatureWriter` (`calt`) + Prova 3
 
 ## Fase 5 — Glifos faltantes

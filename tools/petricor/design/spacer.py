@@ -23,6 +23,8 @@ class Spacer:
         self.rules.update({c: lower for c in "abcdefghijklmnopqrstuvwxyz"})
         for n in ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]:
             self.rules[n] = digit
+        # o gancho do j de forma passa por baixo da letra anterior (lado esquerdo negativo)
+        self.rules["j"] = SpacingRule(-45, 30)
         self.default = punct
         self.space_width = 260
 
@@ -34,6 +36,11 @@ class Spacer:
         b = glyph.bounds()
         if b is None:
             glyph.advance = self.space_width
+            return glyph
+        if "exit" in glyph.anchors:
+            # cursiva conectada: sem 'ar' lateral; a largura vai da entrada até a saída,
+            # então a saída desta letra coincide com a entrada da próxima
+            glyph.advance = glyph.anchors["exit"][0] - glyph.anchors.get("entry", (0, 0))[0]
             return glyph
         rule = self.rule_for(glyph.name)
         dx = rule.left - b[0]

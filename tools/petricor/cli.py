@@ -86,6 +86,26 @@ class HarmonizeProofCommand(Command):
         print(f"Prova gerada: {out}")
 
 
+class DeriveCommand(Command):
+    name, help = "derive", "Gera camadas derivadas: redraw/ (0 9 @), print/ (Petricor), cursive/ (Caligrafia)"
+
+    def run(self) -> None:
+        from .design.letter_builder import DeriveRun
+        sk = self.paths.skeletons
+        res = DeriveRun(sk, sk / "redraw", sk / "print", sk / "cursive").run()
+        print(f"Derivados: {res}")
+
+
+class FamilyProofCommand(Command):
+    name, help = "proof-families", "Prova 2b: Petricor × Petricor Caligrafia (Regular)"
+
+    def run(self) -> None:
+        from .build.family_proof import FamilyProof
+        from .outline.family import Families
+        out = FamilyProof(Families(self.paths.skeletons).all()).render(self.paths.proofs / "prova2b-familias.png")
+        print(f"Prova gerada: {out}")
+
+
 class PetricorCli:
     def __init__(self, commands: list[Command]):
         self.commands = {c.name: c for c in commands}
@@ -102,4 +122,5 @@ class PetricorCli:
 def build_cli(paths: Paths | None = None) -> PetricorCli:
     paths = paths or Paths()
     return PetricorCli([TraceCommand(paths), TraceProofCommand(paths),
-                        HarmonizeCommand(paths), HarmonizeProofCommand(paths)])
+                        HarmonizeCommand(paths), HarmonizeProofCommand(paths),
+                        DeriveCommand(paths), FamilyProofCommand(paths)])
