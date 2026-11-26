@@ -139,8 +139,25 @@ class PieceSplitter:
             pieces = self._halve(pieces[0])
         out = []
         for p in pieces:
-            out += self._cut_tight(p)
+            for q in self._cut_tight(p):
+                out += self._cut_long_turns(q)
         return [Piece(p) for p in out if p]
+
+    MAX_PIECE_TURN = 270.0
+
+    def _cut_long_turns(self, segs: list[Cubic]) -> list[list[Cubic]]:
+        """Trecho que gira mais de 270° acabaria passando por cima de si mesmo
+        (cápsula que se cruza). Cortamos antes disso; as pontas redondas unem."""
+        out, cur, turn = [], [], 0.0
+        for s in segs:
+            t = CubicGeometry.turning(s)
+            if cur and turn + t > self.MAX_PIECE_TURN:
+                out.append(cur)
+                cur, turn = [], 0.0
+            cur.append(s)
+            turn += t
+        out.append(cur)
+        return out
 
     def _subdivide(self, c: Cubic, depth: int = 0) -> list[Cubic]:
         """Divide cúbicas que viram demais (o deslocamento fica impreciso)."""

@@ -107,6 +107,27 @@ class FamilyProofCommand(Command):
         print(f"Prova gerada: {out}")
 
 
+class MastersCommand(Command):
+    name, help = "masters", "Gera masters UFO (Thin/Regular/Black) + designspace das duas famílias"
+
+    def run(self) -> None:
+        from .outline.family import Families
+        from .outline.master_builder import MasterBuilder
+        builder = MasterBuilder(self.paths.root / "sources" / "masters")
+        for fam in Families(self.paths.skeletons).all():
+            print(f"{fam.name}: {builder.build(fam)}")
+
+
+class WeightsProofCommand(Command):
+    name, help = "proof-weights", "Prova 5: cascata dos 9 pesos nas duas famílias"
+
+    def run(self) -> None:
+        from .build.weights_proof import WeightsProof
+        from .outline.family import Families
+        out = WeightsProof(Families(self.paths.skeletons).all()).render(self.paths.proofs / "prova5-pesos.png")
+        print(f"Prova gerada: {out}")
+
+
 class PetricorCli:
     def __init__(self, commands: list[Command]):
         self.commands = {c.name: c for c in commands}
@@ -124,4 +145,5 @@ def build_cli(paths: Paths | None = None) -> PetricorCli:
     paths = paths or Paths()
     return PetricorCli([TraceCommand(paths), TraceProofCommand(paths),
                         HarmonizeCommand(paths), HarmonizeProofCommand(paths),
-                        DeriveCommand(paths), FamilyProofCommand(paths)])
+                        DeriveCommand(paths), FamilyProofCommand(paths),
+                        MastersCommand(paths), WeightsProofCommand(paths)])

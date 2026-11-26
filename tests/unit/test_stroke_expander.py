@@ -90,5 +90,11 @@ class TestStrokeExpander:
             assert p[:, 1].max() < 704 + 31  # nada sobe além do traço + meia caneta
             assert p[:, 0].max() < 371 + 31
 
+    def test_traco_que_da_volta_inteira_e_dividido(self):
+        # caso do 'o' cursivo: o traço contorna a barriga e passa de novo pelo topo
+        loop = Geometry.arc(r=200, start=0, end=2 * np.pi * 0.95)
+        pieces = StrokeExpander(max_pen=150).pieces(loop)
+        assert len(pieces) >= 2
+
     def test_circulo_tem_quatro_arcos(self):
         assert len(CapBuilder.circle((0, 0), 10)) == 4

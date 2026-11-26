@@ -57,6 +57,9 @@ class CursiveBuilder:
     def _points(rec, j_in, j_out, high_entry):
         out = []
         lead = rec.get("lead", 0)
+        if high_entry and "lead_hi" in rec:  # receita com conector alto próprio
+            body = rec["main"][1 + lead:]
+            rec = {**rec, "main": ["E", *rec["lead_hi"], *body], "lead": 0}
         for i, p in enumerate(rec["main"]):
             if p == "E":
                 out.append((0.0, j_in))
