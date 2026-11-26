@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="racute" format="2">
+  <advance width="493"/>
+  <unicode hex="0155"/>
+  <anchor x="364" y="0" name="bottom"/>
+  <anchor x="334" y="560" name="caron"/>
+  <anchor x="416" y="0" name="ogonek"/>
+  <anchor x="213" y="495" name="top"/>
+  <outline>
+    <component base="r"/>
+    <component base="acutecomb" xOffset="213" yOffset="495"/>
+  </outline>
+</glyph>

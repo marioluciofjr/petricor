@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="zacute.hi" format="2">
+  <advance width="391"/>
+  <anchor x="209" y="0" name="bottom"/>
+  <anchor x="337" y="560" name="caron"/>
+  <anchor x="325" y="0" name="ogonek"/>
+  <anchor x="185" y="495" name="top"/>
+  <outline>
+    <component base="z.hi"/>
+    <component base="acutecomb" xOffset="185" yOffset="495"/>
+  </outline>
+</glyph>

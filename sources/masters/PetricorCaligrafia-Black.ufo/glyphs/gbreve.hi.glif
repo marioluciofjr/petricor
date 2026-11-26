@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="gbreve.hi" format="2">
+  <advance width="370"/>
+  <anchor x="210" y="0" name="bottom"/>
+  <anchor x="362" y="560" name="caron"/>
+  <anchor x="304" y="0" name="ogonek"/>
+  <anchor x="226" y="495" name="top"/>
+  <outline>
+    <component base="g.hi"/>
+    <component base="brevecomb" xOffset="226" yOffset="495"/>
+  </outline>
+</glyph>

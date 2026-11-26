@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="wdieresis" format="2">
+  <advance width="518"/>
+  <unicode hex="1E85"/>
+  <anchor x="270" y="0" name="bottom"/>
+  <anchor x="525" y="560" name="caron"/>
+  <anchor x="377" y="0" name="ogonek"/>
+  <anchor x="259" y="495" name="top"/>
+  <outline>
+    <component base="w"/>
+    <component base="dieresiscomb" xOffset="259" yOffset="495"/>
+  </outline>
+</glyph>

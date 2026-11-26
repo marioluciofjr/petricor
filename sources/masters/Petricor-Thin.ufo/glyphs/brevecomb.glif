@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="brevecomb" format="2">
+  <unicode hex="0306"/>
+  <anchor x="0" y="0" name="_top"/>
+  <outline>
+    <contour>
+      <point x="-76.14" y="113.17" type="curve" smooth="yes"/>
+      <point x="-69.27" y="86.99"/>
+      <point x="-73.18" y="52.74"/>
+      <point x="-52.21" y="26.95" type="curve" smooth="yes"/>
+      <point x="-40.28" y="12.24"/>
+      <point x="-21.66" y="-0.55"/>
+      <point x="-1.16" y="0.31" type="curve" smooth="yes"/>
+      <point x="19.25" y="1.41"/>
+      <point x="36.91" y="15.49"/>
+      <point x="48.53" y="30.5" type="curve" smooth="yes"/>
+      <point x="69.65" y="56.21"/>
+      <point x="69.0" y="90.15"/>
+      <point x="77.97" y="116.41" type="curve" smooth="yes"/>
+      <point x="79.4" y="120.59"/>
+      <point x="77.17" y="125.14"/>
+      <point x="72.99" y="126.57" type="curve" smooth="yes"/>
+      <point x="68.81" y="128.0"/>
+      <point x="64.26" y="125.77"/>
+      <point x="62.83" y="121.59" type="curve" smooth="yes"/>
+      <point x="52.6" y="91.65"/>
+      <point x="52.55" y="60.59"/>
+      <point x="36.02" y="40.48" type="curve" smooth="yes"/>
+      <point x="26.29" y="27.91"/>
+      <point x="10.95" y="16.99"/>
+      <point x="-1.93" y="16.29" type="curve" smooth="yes"/>
+      <point x="-14.74" y="15.75"/>
+      <point x="-30.32" y="25.36"/>
+      <point x="-39.79" y="37.04" type="curve" smooth="yes"/>
+      <point x="-55.42" y="56.26"/>
+      <point x="-52.73" y="87.01"/>
+      <point x="-60.66" y="117.23" type="curve" smooth="yes"/>
+      <point x="-61.78" y="121.5"/>
+      <point x="-66.16" y="124.06"/>
+      <point x="-70.43" y="122.94" type="curve" smooth="yes"/>
+      <point x="-74.7" y="121.82"/>
+      <point x="-77.26" y="117.44"/>
+    </contour>
+  </outline>
+</glyph>

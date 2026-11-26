@@ -81,6 +81,10 @@ class ZoneCompensator:
         return knots
 
     def apply(self, g: GlyphSkeleton, prof: WeightProfile) -> GlyphSkeleton:
+        return g.transformed(self.transform_fn(g, prof))
+
+    def transform_fn(self, g: GlyphSkeleton, prof: WeightProfile):
+        """Função ponto → ponto da compensação (aplicável a qualquer pedaço do glifo)."""
         knots = self.knots_for(g)
         d = prof.pen / 2
         if g.strokes and knots and knots[0][1] == 1 and self._lowest_is_dot(g):
@@ -100,7 +104,7 @@ class ZoneCompensator:
                 return y + (dst[-1] - src[-1])
             return float(np.interp(y, src, dst))
 
-        return g.transformed(lambda p: (p[0] * fx, fy(p[1])))
+        return lambda p: (p[0] * fx, fy(p[1]))
 
     @staticmethod
     def _lowest_is_dot(g: GlyphSkeleton) -> bool:

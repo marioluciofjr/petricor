@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="emdash" format="2">
+  <advance width="1315"/>
+  <unicode hex="2014"/>
+  <outline>
+    <contour>
+      <point x="1195.2" y="338.3" type="curve" smooth="yes"/>
+      <point x="907.29" y="338.3"/>
+      <point x="644.31" y="319.32"/>
+      <point x="365.54" y="311.97" type="curve" smooth="yes"/>
+      <point x="294.09" y="310.06"/>
+      <point x="205.95" y="318.3"/>
+      <point x="120.0" y="318.3" type="curve" smooth="yes"/>
+      <point x="78.58" y="318.3"/>
+      <point x="45.0" y="284.72"/>
+      <point x="45.0" y="243.3" type="curve" smooth="yes"/>
+      <point x="45.0" y="201.88"/>
+      <point x="78.58" y="168.3"/>
+      <point x="120.0" y="168.3" type="curve" smooth="yes"/>
+      <point x="195.55" y="168.3"/>
+      <point x="284.37" y="159.74"/>
+      <point x="369.53" y="162.03" type="curve" smooth="yes"/>
+      <point x="652.52" y="169.48"/>
+      <point x="913.93" y="188.3"/>
+      <point x="1195.2" y="188.3" type="curve" smooth="yes"/>
+      <point x="1236.62" y="188.3"/>
+      <point x="1270.2" y="221.88"/>
+      <point x="1270.2" y="263.3" type="curve" smooth="yes"/>
+      <point x="1270.2" y="304.72"/>
+      <point x="1236.62" y="338.3"/>
+    </contour>
+  </outline>
+</glyph>

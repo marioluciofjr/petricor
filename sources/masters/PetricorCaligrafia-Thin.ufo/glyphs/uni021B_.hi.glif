@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="uni021B.hi" format="2">
+  <advance width="340"/>
+  <anchor x="214" y="0" name="bottom"/>
+  <anchor x="192" y="440" name="caron"/>
+  <anchor x="274" y="0" name="ogonek"/>
+  <anchor x="156" y="495" name="top"/>
+  <outline>
+    <component base="t.hi"/>
+    <component base="commaaccentcomb" xOffset="214"/>
+  </outline>
+</glyph>

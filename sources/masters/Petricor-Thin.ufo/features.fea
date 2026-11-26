@@ -1,0 +1,9 @@
+@TopMarks = [acutecomb brevecomb caroncomb circumflexcomb dieresiscomb dotaccentcomb gravecomb hungarumlautcomb macroncomb ringcomb tildecomb];
+
+feature ccmp {
+  sub [i j]' @TopMarks by [idotless jdotless];
+} ccmp;
+
+feature tnum {
+  sub [zero one two three four five six seven eight nine] by [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
+} tnum;

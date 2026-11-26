@@ -1,0 +1,16 @@
+@TopMarks = [acutecomb brevecomb caroncomb circumflexcomb dieresiscomb dotaccentcomb gravecomb hungarumlautcomb macroncomb ringcomb tildecomb];
+
+feature ccmp {
+  sub [i j i.hi j.hi]' @TopMarks by [idotless jdotless idotless.hi jdotless.hi];
+} ccmp;
+
+@HighExit = [b b.hi o o.hi oacute oacute.hi ocircumflex ocircumflex.hi odieresis odieresis.hi oe ograve ograve.hi ohungarumlaut ohungarumlaut.hi otilde otilde.hi v v.hi w w.hi wacute wacute.hi wcircumflex wcircumflex.hi wdieresis wdieresis.hi wgrave wgrave.hi];
+@LowEntry = [a aacute abreve acircumflex adieresis agrave amacron aogonek aring atilde b c cacute ccaron ccedilla cdotaccent d dcaron e eacute ecaron ecircumflex edieresis edotaccent egrave emacron eogonek f g gbreve gdotaccent h i iacute icircumflex idieresis idotless igrave imacron iogonek j jdotless k l lacute lcaron m n nacute ncaron ntilde o oacute ocircumflex odieresis ograve ohungarumlaut otilde p q r racute rcaron s sacute scaron scedilla t tcaron u uacute ucircumflex udieresis ugrave uhungarumlaut umacron uni0123 uni0137 uni013C uni0146 uni0219 uni021B uogonek uring v w wacute wcircumflex wdieresis wgrave x y yacute ycircumflex ydieresis ygrave z zacute zcaron zdotaccent];
+@HighEntry = [a.hi aacute.hi abreve.hi acircumflex.hi adieresis.hi agrave.hi amacron.hi aogonek.hi aring.hi atilde.hi b.hi c.hi cacute.hi ccaron.hi ccedilla.hi cdotaccent.hi d.hi dcaron.hi e.hi eacute.hi ecaron.hi ecircumflex.hi edieresis.hi edotaccent.hi egrave.hi emacron.hi eogonek.hi f.hi g.hi gbreve.hi gdotaccent.hi h.hi i.hi iacute.hi icircumflex.hi idieresis.hi idotless.hi igrave.hi imacron.hi iogonek.hi j.hi jdotless.hi k.hi l.hi lacute.hi lcaron.hi m.hi n.hi nacute.hi ncaron.hi ntilde.hi o.hi oacute.hi ocircumflex.hi odieresis.hi ograve.hi ohungarumlaut.hi otilde.hi p.hi q.hi r.hi racute.hi rcaron.hi s.hi sacute.hi scaron.hi scedilla.hi t.hi tcaron.hi u.hi uacute.hi ucircumflex.hi udieresis.hi ugrave.hi uhungarumlaut.hi umacron.hi uni0123.hi uni0137.hi uni013C.hi uni0146.hi uni0219.hi uni021B.hi uogonek.hi uring.hi v.hi w.hi wacute.hi wcircumflex.hi wdieresis.hi wgrave.hi x.hi y.hi yacute.hi ycircumflex.hi ydieresis.hi ygrave.hi z.hi zacute.hi zcaron.hi zdotaccent.hi];
+feature calt {
+  sub @HighExit @LowEntry' by @HighEntry;
+} calt;
+
+feature tnum {
+  sub [zero one two three four five six seven eight nine] by [zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf];
+} tnum;

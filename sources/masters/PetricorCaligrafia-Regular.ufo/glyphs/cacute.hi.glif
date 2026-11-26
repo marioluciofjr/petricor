@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="cacute.hi" format="2">
+  <advance width="412"/>
+  <anchor x="253" y="0" name="bottom"/>
+  <anchor x="297" y="560" name="caron"/>
+  <anchor x="347" y="0" name="ogonek"/>
+  <anchor x="186" y="495" name="top"/>
+  <outline>
+    <component base="c.hi"/>
+    <component base="acutecomb" xOffset="186" yOffset="495"/>
+  </outline>
+</glyph>

@@ -116,6 +116,37 @@ class RedrawBuilder:
         return g
 
 
+class GlyphCorrections:
+    """Ajustes pontuais pedidos pelo Mário depois das provas (reprodutíveis, em código)."""
+
+    E_MIDDLE_RATIO = 0.72  # barra do meio do E: ~72% da largura (antes ~35%, parecia '[')
+
+    def __init__(self, base: SkeletonStore, jitter: HandJitter | None = None):
+        self.base = base
+        self.jitter = jitter or HandJitter(amplitude=3.0)
+
+    def all(self) -> list[GlyphSkeleton]:
+        return [self.longer_e_middle()]
+
+    def longer_e_middle(self) -> GlyphSkeleton:
+        g = self.base.load("E")
+        width = g.bounds()[2] - g.bounds()[0]
+
+        def is_middle(s: Stroke) -> bool:
+            p = s.sample(12)
+            return 250 < p[:, 1].mean() < 500 and np.ptp(p[:, 1]) < 60
+
+        strokes = []
+        for s in g.strokes:
+            if is_middle(s):
+                x0, y0 = s.segments[0].p0
+                x1 = g.bounds()[0] + self.E_MIDDLE_RATIO * width
+                s = self.jitter.apply(SkeletonPen.spline([(x0, y0), (x0 + 0.4 * (x1 - x0), y0 + 8), (x1, y0 + 4)]),
+                                      "Emid")
+            strokes.append(s)
+        return GlyphSkeleton("E", list(g.unicodes), strokes, g.advance)
+
+
 class LayerStack:
     """Consulta várias camadas de esqueletos; a primeira que tiver o glifo vence."""
 
@@ -157,6 +188,8 @@ class DeriveRun:
         return dict(self.count)
 
     def _letters(self) -> None:
+        for g in GlyphCorrections(self.base).all():
+            self._save(self.common, g)
         redraw = RedrawBuilder()
         for name, uni in self.REDRAW_UNICODES.items():
             self._save(self.common, redraw.build(name, uni))

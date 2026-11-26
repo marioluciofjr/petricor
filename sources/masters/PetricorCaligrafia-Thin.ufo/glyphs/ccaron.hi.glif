@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ccaron.hi" format="2">
+  <advance width="400"/>
+  <anchor x="241" y="0" name="bottom"/>
+  <anchor x="290" y="560" name="caron"/>
+  <anchor x="334" y="0" name="ogonek"/>
+  <anchor x="180" y="495" name="top"/>
+  <outline>
+    <component base="c.hi"/>
+    <component base="caroncomb" xOffset="180" yOffset="495"/>
+  </outline>
+</glyph>

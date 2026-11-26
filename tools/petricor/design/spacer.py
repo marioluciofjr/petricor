@@ -35,7 +35,8 @@ class Spacer:
         """Desloca os contornos para lsb e define o avanço = lsb + largura + rsb."""
         b = glyph.bounds()
         if b is None:
-            glyph.advance = self.space_width
+            # espaço cresce com a caneta: letras mais gordas pedem mais ar entre palavras
+            glyph.advance = self.space_width - 30 + 0.6 * prof.pen
             return glyph
         if any(k.startswith("_") for k in glyph.anchors):
             glyph.advance = 0.0  # acento combinante: largura zero, centrado na âncora

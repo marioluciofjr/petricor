@@ -8,7 +8,7 @@ import numpy as np
 from ..design.spacer import Spacer
 from ..model import Component, Cubic, GlyphSkeleton
 from .anchors import AnchorCalculator
-from .stroke_expander import StrokeExpander
+from .stroke_expander import Piece, StrokeExpander
 from .weight_profile import MAX_PEN, WeightProfile, ZoneCompensator
 
 
@@ -39,10 +39,15 @@ class OutlineGlyphFactory:
         self.anchors = anchors or AnchorCalculator()
 
     def build(self, skel: GlyphSkeleton, prof: WeightProfile) -> OutlineGlyph:
-        g = self.compensator.apply(skel, prof)
+        fn = self.compensator.transform_fn(skel, prof)
+        g = skel.transformed(fn)
         contours = []
-        for stroke in g.strokes:
-            contours += self.expander.expand(stroke, prof.pen, prof.dot_pen)
+        for stroke in skel.strokes:
+            # A divisão em cápsulas é decidida no esqueleto ORIGINAL (igual em todos os pesos)
+            # e só depois cada pedaço recebe a compensação do peso: masters compatíveis.
+            for piece in self.expander.pieces(stroke):
+                moved = Piece([seg.transformed(fn) for seg in piece.segments], piece.is_dot)
+                contours.append(self.expander.capsule(moved, prof.pen, prof.dot_pen))
         anchors = {**self.anchors.compute(g), **g.anchors}
         # âncoras de acento ('_top'...) marcam a BORDA visual: não passam pela compensação de peso
         anchors.update({k: v for k, v in skel.anchors.items() if k.startswith("_")})

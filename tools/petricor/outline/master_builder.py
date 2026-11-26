@@ -25,7 +25,7 @@ class UfoGlyphWriter:
     def write(ufo, g: OutlineGlyph) -> None:
         glyph = ufo.newGlyph(g.name)
         glyph.unicodes = list(g.unicodes)
-        glyph.width = round(g.advance)
+        glyph.width = UfoGlyphWriter._int(g.advance)
         pen = glyph.getPen()
         for contour in g.contours:
             pen.moveTo(UfoGlyphWriter._r(contour[0].p0))
@@ -33,15 +33,20 @@ class UfoGlyphWriter:
                 pen.curveTo(UfoGlyphWriter._r(c.p1), UfoGlyphWriter._r(c.p2), UfoGlyphWriter._r(c.p3))
             pen.closePath()
         for comp in g.components:
-            pen.addComponent(comp.base, (1, 0, 0, 1, round(comp.dx), round(comp.dy)))
+            pen.addComponent(comp.base, (1, 0, 0, 1, UfoGlyphWriter._int(comp.dx), UfoGlyphWriter._int(comp.dy)))
         # só âncoras de acento: 'entry'/'exit' gerariam uma regra 'curs' indesejada
         for name, (x, y) in sorted(g.anchors.items()):
             if name in UFO_ANCHORS:
-                glyph.appendAnchor({"name": name, "x": round(x), "y": round(y)})
+                glyph.appendAnchor({"name": name, "x": UfoGlyphWriter._int(x), "y": UfoGlyphWriter._int(y)})
+
+    @staticmethod
+    def _int(v) -> int:
+        return int(round(float(v)))
 
     @staticmethod
     def _r(p):
-        return (round(p[0], 2), round(p[1], 2))
+        """Converte para float do Python (o numpy vazaria 'np.float64(...)' no XML do UFO)."""
+        return (round(float(p[0]), 2), round(float(p[1]), 2))
 
 
 @dataclass(frozen=True)

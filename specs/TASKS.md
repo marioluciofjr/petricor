@@ -38,8 +38,9 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 - ✅ T20 `ExtraBuilder`: 62 extras (aspas curvas, travessões, « », ¡ ¿, © ®, Æ Œ Ø Ð Þ Ħ Ł ẞ, æ œ ø ð þ ß ı ȷ ł ħ đ, ª º ¢ …) + algarismos tabulares `.tf` · Prova 4 `proofs/prova4-acentos.png`
 
 ## Fase 6 — Pesos ⛳
-- ⏳ T21 Masters Thin/Regular/Black + checagem de autointerseção
-- ⏳ T22 `DesignspaceWriter` (eixo, 9 instâncias, STAT) + Prova 5 ⛳
+- ✅ T20a Pedidos do Mário: `o` cursivo refeito (não parece `a`); barra do meio do `E` em 72% da largura (não parece `[`)
+- ✅ T21 Masters Thin/Regular/Black (`MasterBuilder`); divisão em cápsulas decidida no esqueleto original → masters compatíveis (teste de integração)
+- 🔄 T22 Designspace (eixo wght 100–900, 9 instâncias) + VFs compiladas com fontmake · Prova 5 `proofs/prova5-pesos.png` (renderizada da VF via HarfBuzz) aguardando aprovação ⛳
 
 ## Fase 7 — Build e QA
 - ⏳ T23 `Spacer` + `Kerner` + figuras tabulares (`tnum`)
