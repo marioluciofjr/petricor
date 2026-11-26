@@ -36,14 +36,17 @@ jobs:
           pip install -e .
           pytest -q
 
+      # Uma família por vez: checar as duas juntas gera FAILs falsos de
+      # "família inconsistente" (nomes, faixa do eixo e métricas diferentes).
       - name: Verificação do Google Fonts (fontbakery)
         run: |
           python -m venv .venv-qa
           .venv-qa/bin/pip install -r requirements-qa.txt
           mkdir -p fonts/report
-          .venv-qa/bin/fontbakery check-googlefonts \
-            "fonts/variable/Petricor[wght].ttf" "fonts/variable/PetricorCaligrafia[wght].ttf" \
-            --ghmarkdown fonts/report/fontbakery.md -l WARN
+          for f in Petricor PetricorCaligrafia; do
+            .venv-qa/bin/fontbakery check-googlefonts "fonts/variable/${f}[wght].ttf" \
+              --ghmarkdown "fonts/report/fontbakery-${f}.md" -l WARN
+          done
 
       - name: Publicar as fontes como artefato
         if: always()
