@@ -14,9 +14,9 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 - ✅ T07 `SheetLayout` (mapa célula → caractere das duas folhas)
 - ✅ T08 `SheetLoader` + ajuste de grade regular (substitui o `RegistrationAligner`: a grade ajustada já corrige a rotação)
 - ✅ T09 `GridSlicer` + `InkExtractor` (tinta × guias ciano por matiz HSV; ponte sobre as guias; linha de base da célula)
-- ⏳ T10 `Skeletonizer` + `StrokeTracer` + `BezierFitter`
-- ⏳ T11 `SkeletonStore` (JSON) + comando `trace`
-- ⏳ T12 Prova 1 (original × vetorizado)
+- ✅ T10 `Skeletonizer` + `StrokeTracer` + `BezierFitter`
+- ✅ T11 `SkeletonStore` (JSON) + comando `trace` (escala: maiúsculas 174 px = 700 un)
+- ✅ T12 Prova 1 (original × vetorizado) → `proofs/prova1-vetorizacao.png`
 
 ## Fase 3 — Harmonização ⛳
 - ⏳ T13 `Metrics` + `Harmonizer` (alturas, inclinação, suavização)

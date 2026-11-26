@@ -1,0 +1,33 @@
+{
+ "name": "parenright",
+ "unicodes": [
+  41
+ ],
+ "advance": 125.7,
+ "locked": false,
+ "anchors": {},
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     529.5,
+     665.9
+    ],
+    [
+     622.6,
+     531.4
+    ],
+    [
+     730.6,
+     183.5
+    ],
+    [
+     581.7,
+     56.2
+    ]
+   ]
+  }
+ ],
+ "components": []
+}
