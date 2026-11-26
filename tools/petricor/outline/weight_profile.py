@@ -11,6 +11,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
+from ..design.accents import MARK_ROLE
 from ..design.harmonizer import GlyphClassifier
 from ..model import GlyphSkeleton
 
@@ -50,11 +51,37 @@ def profile(name: str) -> WeightProfile:
 class ZoneCompensator:
     """Aplica, para um peso, o deslocamento por zonas na linha central."""
 
+    SNAP = 45  # distância máxima para 'grudar' numa linha conhecida
+
     def __init__(self, classifier: GlyphClassifier | None = None):
         self.classifier = classifier or GlyphClassifier()
+        m = self.classifier.metrics
+        self.lines_top = [m.x_height, m.t_height, m.cap_height, m.ascender]
+        self.descender = m.descender
+
+    def knots_for(self, g: GlyphSkeleton) -> list:
+        if g.name in MARK_ROLE:  # acentos: a borda que encosta na letra fica fixa
+            return [(0.0, 1)] if MARK_ROLE[g.name] in ("top", "caron") else [(0.0, -1)]
+        knots = self.classifier.zones_for(g.name)
+        return knots if knots is not None else self._infer(g)
+
+    def _infer(self, g: GlyphSkeleton) -> list:
+        """Glifo sem regra (Æ, ø, aspas...): gruda nas linhas mais próximas do seu contorno."""
+        b = g.bounds()
+        if b is None:
+            return []
+        knots = []
+        if b[1] < self.descender + 80:
+            knots.append((self.descender, 1))
+        if abs(b[1]) < self.SNAP or b[1] < self.descender + 80:
+            knots.append((0.0, 1))
+        near = min(self.lines_top, key=lambda y: abs(y - b[3]))
+        if abs(near - b[3]) < self.SNAP:
+            knots.append((near, -1))
+        return knots
 
     def apply(self, g: GlyphSkeleton, prof: WeightProfile) -> GlyphSkeleton:
-        knots = self.classifier.zones_for(g.name)
+        knots = self.knots_for(g)
         d = prof.pen / 2
         if g.strokes and knots and knots[0][1] == 1 and self._lowest_is_dot(g):
             d_bottom = prof.dot_pen / 2  # ponto final pousa na base pela borda

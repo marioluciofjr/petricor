@@ -1,0 +1,38 @@
+{
+ "name": "commaaccentcomb",
+ "unicodes": [
+  806
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {
+  "_bottom": [
+   0.0,
+   0.0
+  ]
+ },
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     50.1,
+     -40.0
+    ],
+    [
+     12.8,
+     -66.5
+    ],
+    [
+     -8.0,
+     -199.3
+    ],
+    [
+     -50.1,
+     -204.5
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

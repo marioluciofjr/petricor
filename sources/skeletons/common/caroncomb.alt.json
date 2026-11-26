@@ -1,0 +1,36 @@
+{
+ "name": "caroncomb.alt",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {
+  "_caron": [
+   0.0,
+   0.0
+  ]
+ },
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     90.3,
+     148.1
+    ],
+    [
+     56.6,
+     124.2
+    ],
+    [
+     37.9,
+     4.7
+    ],
+    [
+     0.0,
+     0.0
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

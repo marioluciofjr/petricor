@@ -1,0 +1,22 @@
+{
+ "name": "aogonek.hi",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "a.hi",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "ogonekcomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "ogonek"
+  }
+ ]
+}

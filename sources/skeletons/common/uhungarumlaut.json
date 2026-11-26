@@ -1,0 +1,24 @@
+{
+ "name": "uhungarumlaut",
+ "unicodes": [
+  369
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "u",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "hungarumlautcomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "top"
+  }
+ ]
+}

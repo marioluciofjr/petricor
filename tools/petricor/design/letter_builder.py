@@ -113,31 +113,81 @@ class RedrawBuilder:
         return g
 
 
+class LayerStack:
+    """Consulta várias camadas de esqueletos; a primeira que tiver o glifo vence."""
+
+    def __init__(self, stores: list[SkeletonStore]):
+        self.stores = stores
+
+    def has(self, name: str) -> bool:
+        return any(s.exists(name) for s in self.stores)
+
+    def get(self, name: str) -> GlyphSkeleton:
+        for s in self.stores:
+            if s.exists(name):
+                return s.load(name)
+        raise KeyError(name)
+
+
 class DeriveRun:
-    """Gera as camadas derivadas: redraw/, print/ (Petricor) e cursive/ (Caligrafia)."""
+    """Gera as camadas derivadas: common/ (as duas famílias), print/ (Petricor), cursive/ (Caligrafia)."""
 
     REDRAW_UNICODES = {"zero": [0x30], "nine": [0x39], "at": [0x40]}
 
-    def __init__(self, base_dir, redraw_dir, print_dir, cursive_dir):
+    def __init__(self, base_dir, common_dir, print_dir, cursive_dir):
         self.base = SkeletonStore(base_dir)
-        self.stores = {"redraw": SkeletonStore(redraw_dir), "print": SkeletonStore(print_dir),
-                       "cursive": SkeletonStore(cursive_dir)}
+        self.common = SkeletonStore(common_dir)
+        self.print = SkeletonStore(print_dir)
+        self.cursive = SkeletonStore(cursive_dir)
+        self.count: dict[str, int] = {}
 
-    def _save(self, layer: str, g: GlyphSkeleton) -> None:
-        store = self.stores[layer]
+    def _save(self, store: SkeletonStore, g: GlyphSkeleton) -> None:
         if store.exists(g.name) and store.load(g.name).locked:
             return  # editado à mão: preserva
         store.save(g)
+        key = store.folder.name
+        self.count[key] = self.count.get(key, 0) + 1
 
     def run(self) -> dict:
+        self._letters()
+        self._accents_and_extras()
+        return dict(self.count)
+
+    def _letters(self) -> None:
         redraw = RedrawBuilder()
         for name, uni in self.REDRAW_UNICODES.items():
-            self._save("redraw", redraw.build(name, uni))
+            self._save(self.common, redraw.build(name, uni))
         printer = PrintBuilder(self.base)
         for letter in printer.names():
-            self._save("print", printer.build(letter))
+            self._save(self.print, printer.build(letter))
         cursive = CursiveBuilder()
         for letter in R.CURSIVE:
-            self._save("cursive", cursive.build(letter))
-            self._save("cursive", cursive.build(letter, high_entry=True))
-        return {"redraw": len(self.REDRAW_UNICODES), "print": len(printer.names()), "cursive": 2 * len(R.CURSIVE)}
+            self._save(self.cursive, cursive.build(letter))
+            self._save(self.cursive, cursive.build(letter, high_entry=True))
+
+    def _accents_and_extras(self) -> None:
+        import glyphsets
+
+        from .accents import MARKS, SPACING_MARKS, AccentCatalog, MarkBuilder, SpacingMarkBuilder
+        from .extras import ExtraBuilder
+
+        marks = MarkBuilder(self.base)
+        for spec in MARKS:
+            self._save(self.common, marks.build(spec))
+        for u in SPACING_MARKS:
+            self._save(self.common, SpacingMarkBuilder.build(u))
+        common_stack = LayerStack([self.common, self.base])
+        for g in ExtraBuilder(common_stack.get).common():
+            self._save(self.common, g)
+        print_stack = LayerStack([self.print, self.common, self.base])
+        for layer, cursive in ((self.print, False), (self.cursive, True)):
+            stack = LayerStack([layer, self.common, self.base])
+            for g in ExtraBuilder(stack.get).family(cursive, stack.has, print_stack.get):
+                self._save(layer, g)
+        catalog = AccentCatalog()
+        composites = catalog.composites(sorted(glyphsets.unicodes_per_glyphset("GF_Latin_Core")))
+        for g in composites:
+            self._save(self.common, g)
+        cursive_stack = LayerStack([self.cursive, self.common, self.base])
+        for g in catalog.high_variants(composites, cursive_stack.has):
+            self._save(self.cursive, g)

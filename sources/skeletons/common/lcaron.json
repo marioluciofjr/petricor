@@ -1,0 +1,24 @@
+{
+ "name": "lcaron",
+ "unicodes": [
+  318
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "l",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "caroncomb.alt",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "caron"
+  }
+ ]
+}

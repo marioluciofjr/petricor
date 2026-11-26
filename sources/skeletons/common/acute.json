@@ -1,0 +1,18 @@
+{
+ "name": "acute",
+ "unicodes": [
+  180
+ ],
+ "advance": 320.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "acutecomb",
+   "dx": 160,
+   "dy": 480,
+   "anchor": null
+  }
+ ]
+}

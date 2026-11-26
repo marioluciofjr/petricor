@@ -128,12 +128,14 @@ class GlyphClassifier:
         name = self.base_name(name)
         if name in special:
             return special[name]
+        if name in ("comma", "semicolon"):
+            return [(base, 1)]  # pousam na base
         rule = self.rule_for(name)
         if isinstance(rule, ZoneFit):
             return [(rule.lo, 1), (rule.hi, -1)]
         if isinstance(rule, Shift):
             return {"bottom": [(rule.y, 1)], "top": [(rule.y, -1)], "center": []}[rule.anchor]
-        return [(base, 1)]  # vírgula e ponto e vírgula: pousam na base
+        return None  # desconhecido: o ZoneCompensator infere pela altura do glifo
 
 
 class Harmonizer:

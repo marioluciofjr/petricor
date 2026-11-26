@@ -1,0 +1,18 @@
+{
+ "name": "dieresis",
+ "unicodes": [
+  168
+ ],
+ "advance": 320.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "dieresiscomb",
+   "dx": 160,
+   "dy": 490,
+   "anchor": null
+  }
+ ]
+}

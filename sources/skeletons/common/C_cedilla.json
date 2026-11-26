@@ -1,0 +1,24 @@
+{
+ "name": "Ccedilla",
+ "unicodes": [
+  199
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "C",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "cedillacomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "bottom"
+  }
+ ]
+}

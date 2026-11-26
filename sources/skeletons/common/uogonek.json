@@ -1,0 +1,24 @@
+{
+ "name": "uogonek",
+ "unicodes": [
+  371
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "u",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "ogonekcomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "ogonek"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "name": "uni0219.hi",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "s.hi",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "commaaccentcomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "bottom"
+  }
+ ]
+}

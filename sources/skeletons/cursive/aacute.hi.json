@@ -1,0 +1,22 @@
+{
+ "name": "aacute.hi",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "a.hi",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "acutecomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "top"
+  }
+ ]
+}

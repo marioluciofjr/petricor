@@ -12,9 +12,9 @@ Nada é commitado sem conferir esta matriz.
 | RF13 Minúsculas de forma (Petricor) | T15c | `design/recipes.py` (PRINT), `design/letter_builder.py` (PrintBuilder) | `unit/test_letter_builder.py` | 🔄 |
 | RF14 Redesenho de 0, 9, @ | T15b | `design/recipes.py` (REDRAW), `design/skeleton_pen.py` | `unit/test_letter_builder.py` | 🔄 |
 | RF15 Duas famílias | T15a | `outline/family.py`, `build/family_proof.py` | `unit/test_letter_builder.py` | 🔄 |
-| RF06 Acentos e sinais | T18–T20 | `design/accent_designer.py`, `design/composer.py` | `contract/test_glyphset.py` | ⏳ |
+| RF06 Acentos e sinais | T18–T20 | `design/accents.py`, `design/extras.py`, `outline/anchors.py`, `outline/composer.py` | `unit/test_accents.py`, `contract/test_glyphset.py` | ✅ |
 | RF07 Espaçamento e kerning | T23 | `design/spacer.py`, `design/kerner.py` | `unit/test_spacer.py` | ⏳ |
-| RF08 Algarismos tabulares | T23 | `design/composer.py`, `outline/feature_writer.py` | `contract/test_features.py` | ⏳ |
+| RF08 Algarismos tabulares | T19, T23 | `outline/composer.py` (`.tf`), `outline/feature_writer.py` | `unit/test_accents.py`, `contract/test_features.py` | 🔄 |
 | RF09 Build em um comando | T24 | `build/gf_builder.py`, `sources/config.yaml` | `e2e/test_build.py` | ⏳ |
 | RF10 Provas visuais | T12, T15, T17, T20, T22 | `build/trace_proof.py` (prova 1), `build/proof_renderer.py` | `regression/test_snapshots.py` | ⏳ |
 | RF11 Repositório upstream | T26–T28 | raiz, `.github/` | `contract/test_repo_structure.py` | ⏳ |

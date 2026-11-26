@@ -1,0 +1,22 @@
+{
+ "name": "ohungarumlaut.hi",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "o.hi",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "hungarumlautcomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "top"
+  }
+ ]
+}

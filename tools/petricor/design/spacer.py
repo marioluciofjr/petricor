@@ -37,6 +37,9 @@ class Spacer:
         if b is None:
             glyph.advance = self.space_width
             return glyph
+        if any(k.startswith("_") for k in glyph.anchors):
+            glyph.advance = 0.0  # acento combinante: largura zero, centrado na âncora
+            return glyph
         if "exit" in glyph.anchors:
             # cursiva conectada: sem 'ar' lateral; a largura vai da entrada até a saída,
             # então a saída desta letra coincide com a entrada da próxima

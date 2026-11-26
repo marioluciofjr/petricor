@@ -56,7 +56,7 @@ class SkeletonStore:
             "locked": g.locked,
             "anchors": {k: self._round(v) for k, v in g.anchors.items()},
             "strokes": [{"closed": s.closed, "nodes": [self._round(p) for p in s.nodes()]} for s in g.strokes],
-            "components": [{"base": c.base, "dx": c.dx, "dy": c.dy} for c in g.components],
+            "components": [{"base": c.base, "dx": c.dx, "dy": c.dy, "anchor": c.anchor} for c in g.components],
         }
 
     @staticmethod
@@ -68,6 +68,7 @@ class SkeletonStore:
                      for s in d.get("strokes", [])],
             advance=float(d.get("advance", 0)),
             anchors={k: tuple(v) for k, v in d.get("anchors", {}).items()},
-            components=[Component(c["base"], c.get("dx", 0), c.get("dy", 0)) for c in d.get("components", [])],
+            components=[Component(c["base"], c.get("dx", 0), c.get("dy", 0), c.get("anchor"))
+                        for c in d.get("components", [])],
             locked=bool(d.get("locked", False)),
         )

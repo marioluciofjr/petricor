@@ -1,0 +1,24 @@
+{
+ "name": "otilde",
+ "unicodes": [
+  245
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "o",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "tildecomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "top"
+  }
+ ]
+}

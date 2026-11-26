@@ -1,0 +1,24 @@
+{
+ "name": "uni0218",
+ "unicodes": [
+  536
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "S",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "commaaccentcomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "bottom"
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "name": "Rcaron",
+ "unicodes": [
+  344
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "R",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "caroncomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "top"
+  }
+ ]
+}

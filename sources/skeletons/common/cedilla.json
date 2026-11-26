@@ -1,0 +1,18 @@
+{
+ "name": "cedilla",
+ "unicodes": [
+  184
+ ],
+ "advance": 320.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "cedillacomb",
+   "dx": 160,
+   "dy": 0,
+   "anchor": null
+  }
+ ]
+}

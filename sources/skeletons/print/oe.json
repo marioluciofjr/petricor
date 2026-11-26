@@ -1,0 +1,24 @@
+{
+ "name": "oe",
+ "unicodes": [
+  339
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "o",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "e",
+   "dx": 95.0,
+   "dy": 0,
+   "anchor": "after"
+  }
+ ]
+}

@@ -87,13 +87,13 @@ class HarmonizeProofCommand(Command):
 
 
 class DeriveCommand(Command):
-    name, help = "derive", "Gera camadas derivadas: redraw/ (0 9 @), print/ (Petricor), cursive/ (Caligrafia)"
+    name, help = "derive", "Gera camadas derivadas: common/ (acentos, extras), print/ (Petricor), cursive/ (Caligrafia)"
 
     def run(self) -> None:
         from .design.letter_builder import DeriveRun
         sk = self.paths.skeletons
-        res = DeriveRun(sk, sk / "redraw", sk / "print", sk / "cursive").run()
-        print(f"Derivados: {res}")
+        res = DeriveRun(sk, sk / "common", sk / "print", sk / "cursive").run()
+        print(f"Derivados por camada: {res}")
 
 
 class FamilyProofCommand(Command):
@@ -102,7 +102,8 @@ class FamilyProofCommand(Command):
     def run(self) -> None:
         from .build.family_proof import FamilyProof
         from .outline.family import Families
-        out = FamilyProof(Families(self.paths.skeletons).all()).render(self.paths.proofs / "prova2b-familias.png")
+        out = FamilyProof(Families(self.paths.skeletons).all()).render(self.paths.proofs / "prova4-acentos.png",
+                                                                        with_accents=True)
         print(f"Prova gerada: {out}")
 
 

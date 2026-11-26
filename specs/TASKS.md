@@ -26,16 +26,16 @@ Legenda: ✅ feito · 🔄 em andamento · ⏳ pendente · ⛳ requer aprovaçã
 - ✅ T15b `SkeletonPen` + `HandJitter` + redesenho de `0`, `9`, `@`
 - ✅ T15c `PrintBuilder`: minúsculas de forma (receitas + S/V/W reduzidas + x/y/z da mão do Mário)
 - ✅ T15e Cursivas redesenhadas como traço contínuo com junção padrão (baixa 110 a 35°; alta 330) + variantes `.hi` (antecipa T16)
-- 🔄 T15d Prova 2b `proofs/prova2b-familias.png` aguardando aprovação ⛳
+- ✅ T15d Prova 2b aprovada pelo Mário ("ficou muito boa") ⛳, com o pedido de acentos (Fase 5)
 
 ## Fase 4 — Cursiva conectada
 - ✅ T16 Junção baixa/alta e variantes `.hi` (feito em T15e: `CursiveBuilder`)
 - ⏳ T17 `FeatureWriter` (`calt`) + Prova 3
 
 ## Fase 5 — Glifos faltantes
-- ⏳ T18 `AccentDesigner` (marcas combinantes no estilo)
-- ⏳ T19 `Composer` (âncoras, compostos, GF Latin Core 100%)
-- ⏳ T20 Sinais extras (aspas curvas, travessões, ^, `, … etc.) + Prova 4
+- ✅ T18 `MarkBuilder`: 14 acentos combinantes + `caroncomb.alt` (ď ľ ť Ľ) + `commaturnedabovecomb` (ģ); til do `~`, anel do `°`, vírgula da `,` do Mário
+- ✅ T19 `AccentCatalog` + `AnchorCalculator` + `Composer` + `MasterGlyphSet`: 145 acentuados + variantes `.hi` da Caligrafia; **GF Latin Core 100% nas duas famílias** (teste de contrato)
+- ✅ T20 `ExtraBuilder`: 62 extras (aspas curvas, travessões, « », ¡ ¿, © ®, Æ Œ Ø Ð Þ Ħ Ł ẞ, æ œ ø ð þ ß ı ȷ ł ħ đ, ª º ¢ …) + algarismos tabulares `.tf` · Prova 4 `proofs/prova4-acentos.png`
 
 ## Fase 6 — Pesos ⛳
 - ⏳ T21 Masters Thin/Regular/Black + checagem de autointerseção

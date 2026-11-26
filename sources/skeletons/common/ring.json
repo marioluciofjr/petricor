@@ -1,0 +1,18 @@
+{
+ "name": "ring",
+ "unicodes": [
+  730
+ ],
+ "advance": 320.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "ringcomb",
+   "dx": 160,
+   "dy": 480,
+   "anchor": null
+  }
+ ]
+}

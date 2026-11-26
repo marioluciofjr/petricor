@@ -1,0 +1,18 @@
+{
+ "name": "tilde",
+ "unicodes": [
+  732
+ ],
+ "advance": 320.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "tildecomb",
+   "dx": 160,
+   "dy": 490,
+   "anchor": null
+  }
+ ]
+}

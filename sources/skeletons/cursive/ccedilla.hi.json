@@ -1,0 +1,22 @@
+{
+ "name": "ccedilla.hi",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "c.hi",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "cedillacomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "bottom"
+  }
+ ]
+}

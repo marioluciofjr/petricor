@@ -1,0 +1,22 @@
+{
+ "name": "uni013C.hi",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "l.hi",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "commaaccentcomb",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "bottom"
+  }
+ ]
+}

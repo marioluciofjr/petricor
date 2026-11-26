@@ -1,0 +1,38 @@
+{
+ "name": "dotaccentcomb",
+ "unicodes": [
+  775
+ ],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {
+  "_top": [
+   0.0,
+   0.0
+  ]
+ },
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

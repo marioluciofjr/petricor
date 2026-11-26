@@ -1,0 +1,36 @@
+{
+ "name": "commaturnedabovecomb",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {
+  "_top": [
+   0.0,
+   0.0
+  ]
+ },
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     -45.1,
+     0.0
+    ],
+    [
+     -11.5,
+     23.9
+    ],
+    [
+     7.2,
+     143.4
+    ],
+    [
+     45.1,
+     148.1
+    ]
+   ]
+  }
+ ],
+ "components": []
+}

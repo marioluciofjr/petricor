@@ -85,11 +85,18 @@ class Stroke:
 
 @dataclass
 class Component:
-    """Referência a outro glifo (usada em compostos, ex.: 'ã' = 'a' + 'tildecomb')."""
+    """Referência a outro glifo (usada em compostos, ex.: 'ã' = 'a' + 'tildecomb').
+
+    anchor = papel do componente na montagem:
+      None      → posição fixa (dx, dy)
+      'top', 'bottom', 'ogonek', 'caron' → encaixa o acento na âncora da base
+      'after'   → vem logo depois do componente anterior (æ = a + e); dx = sobreposição
+    """
 
     base: str
     dx: float = 0.0
     dy: float = 0.0
+    anchor: str | None = None
 
 
 @dataclass

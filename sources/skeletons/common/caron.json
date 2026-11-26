@@ -1,0 +1,18 @@
+{
+ "name": "caron",
+ "unicodes": [
+  711
+ ],
+ "advance": 320.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "caroncomb",
+   "dx": 160,
+   "dy": 480,
+   "anchor": null
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "name": "dcaron.hi",
+ "unicodes": [],
+ "advance": 0.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [],
+ "components": [
+  {
+   "base": "d.hi",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": null
+  },
+  {
+   "base": "caroncomb.alt",
+   "dx": 0.0,
+   "dy": 0.0,
+   "anchor": "caron"
+  }
+ ]
+}

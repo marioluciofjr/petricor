@@ -55,7 +55,11 @@ Masters: Thin (100), Regular (400) e Black (900). Pontas e junções **redondas*
 - `j` tem espaçamento esquerdo negativo (o gancho passa sob a letra anterior).
 
 ## 6. Glifos desenhados no estilo do Mário
-Acentos com o mesmo traço monolinear e a mesma inclinação. O til deriva do `~` escrito; o trema, dos pontos do `i`/`:`; o anel, do `°`. Aspas curvas derivam da vírgula.
+- Acentos com o mesmo traço monolinear. O til deriva do `~` escrito; o anel, do `°`; a vírgula inferior e o apóstrofo de ď ľ ť, da `,`.
+- Encaixe por âncoras em alturas fixas: minúsculas 430 + 65; maiúsculas 700 + 55. Âncoras de acento ficam na borda visual (não sofrem compensação de peso).
+- Convenções: ķ ļ ņ (letão) usam vírgula; ģ usa vírgula girada em cima; í ì î ï ī usam o i sem pingo.
+- Aspas: a vírgula do Mário é reta, então ‘ ’ “ ” ganharam um gancho curvo para abrir e fechar se distinguirem.
+- Ligaduras æ œ: na Caligrafia o `e` conecta pela saída da letra anterior; na Petricor ele invade 95 unidades.
 
 ## 7. Provas (o que o Mário revisa)
 1. Original × vetorizado. 2. Alfabeto harmonizado (Regular). 3. Palavras conectadas em PT. 4. Pangramas PT/ES/FR/DE. 5. Cascata de 9 pesos.

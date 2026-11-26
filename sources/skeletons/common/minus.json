@@ -1,0 +1,33 @@
+{
+ "name": "minus",
+ "unicodes": [
+  8722
+ ],
+ "advance": 341.0,
+ "locked": false,
+ "anchors": {},
+ "strokes": [
+  {
+   "closed": false,
+   "nodes": [
+    [
+     341.0,
+     304.0
+    ],
+    [
+     271.4,
+     297.7
+    ],
+    [
+     48.4,
+     294.5
+    ],
+    [
+     0.0,
+     271.9
+    ]
+   ]
+  }
+ ],
+ "components": []
+}
